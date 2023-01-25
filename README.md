@@ -159,7 +159,7 @@ Se desideri fare la tua traduzione, per favore guarda [Contributing](https://git
 
 v2.1.0 of **Imparare Bitcoin dalla Linea di Comando** è completo di tutte le funzionalità ed è stato completamente modificato e integrato. E' pronto per l'apprendimento.
 
-Stiamo considerando cosa potremmo includere in una [v3.0](TODO-30.md) odel corso. Se volessi supportare in qualche modo il lavoro, diventa un [GitHub Sponsor](https://github.com/sponsors/BlockchainCommons) o supportaci sul nostro [BTCPay Server](https://btcpay.blockchaincommons.com/), e facci sapere che il motivo è stato **Imparare Bitcoin**.
+Stiamo considerando cosa potremmo includere in una [v3.0](../TODO-30.md) odel corso. Se volessi supportare in qualche modo il lavoro, diventa un [GitHub Sponsor](https://github.com/sponsors/BlockchainCommons) o supportaci sul nostro [BTCPay Server](https://btcpay.blockchaincommons.com/), e facci sapere che il motivo è stato **Imparare Bitcoin**.
 
 ## Origine, Autori, Copyright & Licenze
 
