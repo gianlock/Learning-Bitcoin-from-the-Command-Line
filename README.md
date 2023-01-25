@@ -4,7 +4,7 @@
 
 ![](https://www.blockchaincommons.com/images/projects/lbtc-screen.png)
 
-Imparare Bitcoin dalla Linea di Comando è un tutorial per lavorare con Bitcoin (e Lightning) che insegna le interazioni dirette con i server stessi, così come i metodi più solidi e sicuri per iniziare a lavorare con questa crittovaluta.
+Imparare Bitcoin dalla Linea di Comando è un tutorial per lavorare con Bitcoin (e Lightning) che insegna le interazioni dirette con i server stessi, così come i metodi più solidi e sicuri per iniziare a lavorare con questa criptovaluta.
 
 > NOTA: Questa è una bozza in continuo progresso, così che possa ricevere qualche feedback dai primi utenti che la revisioneranno. Non è ancora pronta all'uso.
 
