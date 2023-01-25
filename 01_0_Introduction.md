@@ -6,35 +6,35 @@ I metodi di pagamento per beni e servizi sono cambiati radicalmente negli ultimi
 
 Questi rischi legati alla centralizzazione sono stati i catalizzatori alla base della creazione delle cryptovalute, la quale prima e più di successo è Bitcoin. Bitcoin offre anonimato, rende difficile correlare le transazioni e quasi impossibile la censura da parte di singole entità. Questi vantaggi lo hanno reso una delle valute in più rapida crescita al mondo. Questa crescita, a sua volta, ha reso Bitcoin una impresa tra sviluppatori e imprenditori, desiderosi di creare nuovi servizi per la comunità Bitcoin.
 
-Se sei uno di questi imprenditori o sviluppatori, questo corso fa al caso tuo, in quanto imparerai a programmare in Bitcoin. È un corso introduttivo che gradualmente ti spiegherà tutte le sfumature e caratteristiche di Bitcoin. Potrai inoltre studiare in maniera specifica come usare Bitcoin Core e c-lightining server usando le loro interfacce RPC.
+Se sei uno di questi imprenditori o sviluppatori, questo corso fa al caso tuo, in quanto imparerai a programmare in Bitcoin. È un corso introduttivo che gradualmente ti spiegherà tutte le sfumature e caratteristiche di Bitcoin. Potrai inoltre studiare in maniera specifica come usare Bitcoin Core e c-lightining server usando le loro interfacce RPC (chiamata di procedura remota).
 
-Ti starai chiedendo, perchè non usare una delle più complete librerie che si trovano nei vari linguaggi di programmazione? Perchè non creare la tua da zero? La risposta è perchè lavorare con le criptovalute può essere pericoloso. Non ci sono reti di salvataggio. Se accidentalmente paghi delle fee più del dovuto, crei una transazione invalida o commetti un qualsiasi numero di potenziali errori, le tue criptovalute saranno perse per sempre. Molta di questa responsabilità graverà giustamente sulle tue spalle in quanto programmatore, ma il rischio può essere minimizzato lavorando con le interfacce di crittovaluta più robuste e sicure in circolazione, quelle create dagli stessi team di programmazione cripto: ``bitcoind `` e ``lightningd``.
+Ti starai chiedendo, perchè non usare una delle più complete librerie che si trovano nei vari linguaggi di programmazione? Perchè non creare la tua da zero? La risposta è perchè lavorare con le criptovalute può essere pericoloso. Non ci sono reti di salvataggio. Se accidentalmente paghi delle fee più del dovuto, crei una transazione invalida o commetti un qualsiasi numero di potenziali errori, le tue criptovalute saranno perse per sempre. Molta di questa responsabilità, in quanto programmatore, graverà giustamente sulle tue spalle, ma il rischio può essere minimizzato lavorando con le interfacce di criptovaluta più robuste e sicure in circolazione, quelle create dagli stessi team di programmazione cripto: ``bitcoind `` e ``lightningd``.
 
-Much of this book thus discusses how to script Bitcoin (and Lightning) directly from the command line. Some later chapters deal with more sophisticated programming languages, but again they continue to interact directly with the ``bitcoind`` and ``lightningd`` daemons by using RPC or by interacting with the files they create. This allows you to stand on the shoulders of giants and use their trusted technology to learn how to create your own trusted systems.
+Gran parte di questo libro parla quindi di come utilizzare script Bitcoin (e Lightning) direttamente da linea di comando. Alcuni capitoli affronteranno temi più complicati con l'utilizzo di linguaggi di programmazzione, ma interagiranno direttamente con i programmi di ``bitcoind`` e ``lightningd`` utilizzando RPC o interagendo con i file che creano. Questo ti consentirà di imparare ad usare una tecnologia testata e solida che ti darà la confidenza per creare il tuo "Trusted System".
 
-## Required Skill Level
+## Competenze richieste
 
-You do not need to be particularly technical for the majority of this course. All you need is the confidence to run basic commands on the UNIX command line. If you're familiar with things like `ssh`, `cd`, and `ls`, the course will supply you with the rest.
+Non è necessario essere particolarmente tecnici per la maggior parte di questo corso. Tutto ciò di cui hai bisogno è la dimistichezza nell'usare i comandi di base su riga di comando UNIX. Se hai familiarità con cose come `ssh`, `cd` e `ls`, il corso ti fornirà il resto.
 
-A minority of this course requires programming knowledge, and you should skip over those sections if needed, as discussed in the next section. 
+Una piccola parte di questo corso richiede conoscienze di programmazione e dovresti saltare quelle sezioni se necessario, come discusso nella sezione successiva.
 
-## Overview of Topics
+## Panoramica degli argomenti
 
-This book is broadly divided into the following sections:
+Questo libro è diviso nelle seguenti lezioni:
 
-| Part | Description | Skills |
+| Parte | Descrizione | Competenze |
 |-------|---------|---------|
-| **Part One: Preparing for Bitcoin** | Understanding the basics of Bitcoin and setting up a server for use. | Command Line | 
-| **Part Two: Using Bitcoin-CLI** | Using the Bitcoin-CLI for creating transactions. | Command Line |
-| **Part Three: Bitcoin Scripting** | Expanding your Bitcoin work with scripts. | Programming Concepts |
-| **Part Four: Using Tor** | Improving your node security with Tor | Command Line |
-| **Part Five: Programming with RPC** | Accessing RPC from C and other languages. | Programming in C |
-| **Part Six: Using Lightning-CLI** | Using the Lightning-CLI for creating transactions. | Command Line |
+| **Parte Uno: Preparing for Bitcoin** | Understanding the basics of Bitcoin and setting up a server for use. | Command Line | 
+| **Parte Due: Using Bitcoin-CLI** | Using the Bitcoin-CLI for creating transactions. | Command Line |
+| **Parte Tre: Bitcoin Scripting** | Expanding your Bitcoin work with scripts. | Programming Concepts |
+| **Parte Quattro: Using Tor** | Improving your node security with Tor | Command Line |
+| **Parte Cinque: Programming with RPC** | Accessing RPC from C and other languages. | Programming in C |
+| **Parte Sei: Using Lightning-CLI** | Using the Lightning-CLI for creating transactions. | Command Line |
 | **Appendices** | Utilizing less common Bitcoin setups. | Command Line |
 
-## How To Use This Course
+## Come utilizzare questo corso
 
-So where do you start? This book is primarily intended to be read sequentially. Just follow the "What's Next?" Links at the end of each section and/or click through the individual section links on each chapter page. You'll achieve the best understanding from this course if you actually build yourself a Bitcoin server (per Chapter 2) and then run through all the examples over the course of the book: trying out examples is an excellent learning methodology.
+Da dove puoi iniziare? Questo libro è pensato principalmente per essere letto in sequenza. Basta seguire il collegamento "Cosa c'è dopo?" alla fine di ogni sezione e/o fare clic sui collegamenti delle singole sezioni in ogni pagina del capitolo. Otterrai la migliore comprensione da questo corso se ti costruisci effettivamente un server Bitcoin (come nel Capitolo 2) e poi esegui tutti gli esempi nel corso del libro: provare esempi è un'eccellente metodologia di apprendimento.
 
 If you have different levels of skill or want to learn different things, you might skip to different parts of the book:
 
