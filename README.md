@@ -26,9 +26,9 @@ Se desideri fare la tua traduzione, per favore guarda [Contributing](https://git
 
 * [1.0: Introduzione alla Programmazione con Bitcoin Core e Lighnting](01_0_Introduzione.md)
     * [Intermezzo: Introduzione a Bitcoin](01_1_Introduzione_a_Bitcoin.md)
-* [2.0: Configurazione di un Bitcoin-Core VPS](02_0_Configurazione_di_un_Bitcoin-Core_VPS.md)
-  * [2.1: Configurazione di un Bitcoin-Core VPS con Bitcoin Standup](02_1_Configurazione_di_un_Bitcoin-Core_VPS_con_StackScript.md)
-  * [2.2: Configurazione di una Macchina Bitcoin-Core tramite altri metodi](02_2_Configurazione_di_un_Bitcoin-Core_Altro.md)
+* [2.0: Configurazione di un Bitcoin-Core VPS](02_0_Configurazione_di_un_VPS_Bitcoin-Core.md)
+  * [2.1: Configurazione di un VPS Bitcoin-Core con Bitcoin Standup](02_1_Configurazione_di_un_VPS_Bitcoin-Core_con_StackScript.md)
+  * [2.2: Configurazione di una Macchina Bitcoin-Core Tramite Altri Metodi](02_2_Configurazione_di_un_Bitcoin-Core_Altro.md)
 
 ### PARTE DUE: UTILIZZO DI BITCOIN-CLI
 
@@ -42,7 +42,7 @@ Se desideri fare la tua traduzione, per favore guarda [Contributing](https://git
   * [3.4: Ricevere Una Transazione](03_4_Ricevere_una_Transazione.md)
   * [3.5: Capire il Descrittore](03_5_Capire_il_Descrittore.md)
 * [4.0: Inviare Transazioni Bitcoin](04_0_Inviare_Transazioni_Bitcoin.md)
-  * [4.1: Inviare Monete nel Modo Semplice](04_1_Monete_nel_Modo_Semplice.md)
+  * [4.1: Inviare Monete nel Modo Semplice](04_1_Inviare_Monete_Modo_Semplice.md)
   * [4.2: Creare una Transazione Grezza](04_2_Creare_una_Transaction_Grezza.md)
      * [Intermezzo: Usare JQ](04_2__Intermezzo_Usare_JQ.md)
   * [4.3: Creare una Transazione Grezza con Argomenti Denominati](04_3_Creare_una_Transazione_Grezza_con_Argomenti_Denominati.md)
@@ -50,9 +50,9 @@ Se desideri fare la tua traduzione, per favore guarda [Contributing](https://git
      * [Intermezzo: Usare Curl](04_4__Intermezzo_Usare_Curl.md)
   * [4.5: Inviare Monete con Transazioni Grezze Automatizzate](04_5_Inviare_Monete_con_Transazioni_Grezze_Automatizzate.md)
   * [4.6: Creare una Transazione Segwit](04_6_Creare_una_Transazione_Segwit.md)
-* [5.0: Controllare le Transazioni Bitcoin](05_0_Controllare_le_Transazioni_Bitcoin.md)
-  * [5.1 Tenere d'Occhio le Transazioni ](05_1_Watching_for_Stuck_Transactions.md)
-  * [5.2: Reinviare una Transazione con RBF](05_2_Reinviare_una_Transazione_una_RBF.md)
+* [5.0: Monitorare le Transazioni Bitcoin](05_0_Monitorare_le_Transazioni_Bitcoin.md)
+  * [5.1 Monitorare le Transazioni Bloccate](05_1_Controllare_le_Tranzazioni_Bloccate.md)
+  * [5.2: Reinviare una Transazione con RBF](05_2_Reinviare_una_Transazione_con_RBF.md)
   * [5.3: Coprire una Transazione con CPFP](05_3_Coprire_una_Transaction_con_CPFP.md)
 * [6.0: Espandere le Transazioni Bitcoin con Multisigs](06_0_Ampliare_Transazioni_Bitcoin_Multisigs.md)
   * [6.1: Inviare una Transazione con un Multisig](06_1_Inviare_una_Transazione_con_Multisig.md)
@@ -185,7 +185,7 @@ Il miglior luogo per parlare di Blockchain Commons e i suoi progetti è nell nos
 
 ### Altre Domande & Problemi
 
-In quanto comunità open-source, open-development, Blockchain Commons non ha le risorse per fornire supporto diretto ai nostri progetti. Considerate l'area di discussione come un  luogo dove potreste trovare risposte alle vostre domande. In alternativa, usate le funzionalità di questa repository [issues](../../issues). Putroppo, non possiamo fare promesse sui tempi di risposta.
+In quanto comunità open-source, open-development, Blockchain Commons non ha le risorse per fornire supporto diretto ai nostri progetti. Considerate l'area di discussione come un  luogo dove potreste trovare risposte alle vostre domande. In alternativa, usate le funzionalità di questa repository [issues](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/issues). Putroppo, non possiamo fare promesse sui tempi di risposta.
 
 Se la tua società necessitasse di supporto per l'utilizzo dei nostri progetti, sentiti libero di contattarci direttamente per conoscere le opzioni. Potremmo essere in grado di offrirti un contratto per il supporto da parte di uno dei nostri contributori, o potremmo indirizzarti verso qualcuno che possa offrirti un contratto per il supporto di cui hai bisogno.
 
