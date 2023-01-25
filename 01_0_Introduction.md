@@ -1,4 +1,4 @@
-# Capitolo Uno: Introduzione all'apprendimento di Bitcoin Core (e Linghtning) dalla riga di comando
+# Capitolo Uno: Introduzione all'apprendimento di Bitcoin Core (e Linghtning) da riga di comando
 
 ## Introduzione
 
