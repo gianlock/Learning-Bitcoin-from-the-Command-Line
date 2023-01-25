@@ -1,8 +1,10 @@
-# Chapter One: Introduction to Learning Bitcoin Core (& Lightning) from the Command Line
+# Capitolo Uno: Introduzione all'apprendimento di Bitcoin Core (e Linghtning) dalla riga di comando
 
-## Introduction
+## Introduzione
 
-The ways that we make payments for goods and services has been changing dramatically over the last several decades. Where once all transactions were conducted through cash or checks, now various electronic payment methods are the norm. However, most of these electronic payments still occur through centralized systems, where credit card companies, banks, or even internet-based financial institutions like Paypal keep long, individually correlated lists of transactions and have the power to censor transactions that they don't like.
+I metodi di pagamento per beni e servizi sono cambiati radicalmente negli ultimi decenni. Laddove una volta tutte le transazioni venivano effettuate tramite contanti o assegni, ora vari metodi di pagamento elettronico sono la norma. Tuttavia, la maggior parte di questi pagamenti elettronici avviene ancora attraverso sistemi centralizzati, dove società di carte di credito, banche o persino istituti finanziari basati su Internet come PayPal tengono lunghi elenchi di transazioni singolarmente correlati e hanno il potere di censura sulle transazioni non gradite.
+
+Where once all transactions were conducted through cash or checks, now various electronic payment methods are the norm. However, most of these electronic payments still occur through centralized systems, where credit card companies, banks, or even internet-based financial institutions like Paypal keep long, individually correlated lists of transactions and have the power to censor transactions that they don't like.
 
 These centralization risks were some of the prime catalysts behind the creation of cryptocurrencies, the first and most successful of which is Bitcoin. Bitcoin offers pseudonymity; it makes it difficult to correlate transactions; and it makes censorship by individual entities all but impossible. These advantages have made it one of the quickest growing currencies in the world. That growth in turn has made Bitcoin into a going concern among entrepreneurs and developers, eager to create new services for the Bitcoin community.
 
