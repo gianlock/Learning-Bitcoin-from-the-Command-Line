@@ -163,7 +163,7 @@ Stiamo considerando cosa potremmo includere in una [v3.0](../TODO-30.md) odel co
 
 ## Origine, Autori, Copyright & Licenze
 
-Salvo diversa indicazione (che sia in questo [/README.md](./README.md) o nei commenti di testa del file) i contenuti di questo repository sono coperta da Copyright © 2020 della Blockchain Commons, LLC, sotto licenza [CC-BY](./LICENSE-CC-BY-4.0.md).
+Salvo diversa indicazione (che sia in questo [README.md](./README.md) o nei commenti di testa del file) i contenuti di questo repository sono coperta da Copyright © 2020 della Blockchain Commons, LLC, sotto licenza [CC-BY](./LICENSE-CC-BY-4.0.md).
 
 ## Supporto Finanziario
 
