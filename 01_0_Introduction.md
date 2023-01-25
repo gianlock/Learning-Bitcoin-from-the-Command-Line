@@ -10,7 +10,7 @@ Se sei uno di questi imprenditori o sviluppatori, questo corso fa al caso tuo, i
 
 Ti starai chiedendo, perchè non usare una delle più complete librerie che si trovano nei vari linguaggi di programmazione? Perchè non creare la tua da zero? La risposta è perchè lavorare con le criptovalute può essere pericoloso. Non ci sono reti di salvataggio. Se accidentalmente paghi delle fee più del dovuto, crei una transazione invalida o commetti un qualsiasi numero di potenziali errori, le tue criptovalute saranno perse per sempre. Molta di questa responsabilità, in quanto programmatore, graverà giustamente sulle tue spalle, ma il rischio può essere minimizzato lavorando con le interfacce di criptovaluta più robuste e sicure in circolazione, quelle create dagli stessi team di programmazione cripto: ``bitcoind `` e ``lightningd``.
 
-Gran parte di questo libro parla quindi di come utilizzare script Bitcoin (e Lightning) direttamente da linea di comando. Alcuni capitoli affronteranno temi più complicati con l'utilizzo di linguaggi di programmazzione, ma interagiranno direttamente con i programmi di ``bitcoind`` e ``lightningd`` utilizzando RPC o interagendo con i file che creano. Questo ti consentirà di imparare ad usare una tecnologia testata e solida che ti darà la confidenza per creare il tuo "Trusted System".
+Gran parte di questo libro parla quindi di come utilizzare script Bitcoin (e Lightning) direttamente da linea di comando. Alcuni capitoli affronteranno temi più complicati con l'utilizzo di linguaggi di programmazzione, ma interagiranno direttamente con i programmi di ``bitcoind`` e ``lightningd`` utilizzando RPC o interagendo con i file che creano. Questo ti consentirà di imparare ad usare una tecnologia testata e solida che ti darà la confidenza necessaria per creare il tuo "Trusted System".
 
 ## Competenze richieste
 
@@ -24,17 +24,17 @@ Questo libro è diviso nelle seguenti lezioni:
 
 | Parte | Descrizione | Competenze |
 |-------|---------|---------|
-| **Parte Uno: Preparing for Bitcoin** | Understanding the basics of Bitcoin and setting up a server for use. | Command Line | 
-| **Parte Due: Using Bitcoin-CLI** | Using the Bitcoin-CLI for creating transactions. | Command Line |
-| **Parte Tre: Bitcoin Scripting** | Expanding your Bitcoin work with scripts. | Programming Concepts |
-| **Parte Quattro: Using Tor** | Improving your node security with Tor | Command Line |
-| **Parte Cinque: Programming with RPC** | Accessing RPC from C and other languages. | Programming in C |
-| **Parte Sei: Using Lightning-CLI** | Using the Lightning-CLI for creating transactions. | Command Line |
-| **Appendices** | Utilizing less common Bitcoin setups. | Command Line |
+| **Parte Uno: Preparsi per Bitcoin** | Capire le basi di Bitcoin e la configurazione di un server. | Linea di comando | 
+| **Parte Due: Utilizzo di Bitcoin-CLI** | Usare Bitcoin-CLI per creare transazioni. | Linea di comando |
+| **Parte Tre: Script di Bitcoin** | Espandere il tuo lavoro Bitcoin con gli script. | Concetti di programmazione |
+| **Parte Quattro: Privacy** | Migliorare la sicurezza del tuo nodo con Tor | Linea di comando |
+| **Parte Cinque: Programmazione con RPC** | Accesso a RPC da C e altri linguaggi. | Programmazione in C |
+| **Parte Sei: Usare Lightning-CLI** | Utilizzo di Lightning-CLI per la creazione di transazioni. | Linea di comando |
+| **Appendici** | Utilizzo di configurazioni Bitcoin meno comuni. | Linea di comando |
 
 ## Come utilizzare questo corso
 
-Da dove puoi iniziare? Questo libro è pensato principalmente per essere letto in sequenza. Basta seguire il collegamento "Cosa c'è dopo?" alla fine di ogni sezione e/o fare clic sui collegamenti delle singole sezioni in ogni pagina del capitolo. Otterrai la migliore comprensione da questo corso se ti costruisci effettivamente un server Bitcoin (come nel Capitolo 2) e poi esegui tutti gli esempi nel corso del libro: provare esempi è un'eccellente metodologia di apprendimento.
+Da dove puoi iniziare? Questo libro è pensato principalmente per essere letto in sequenza. Basta seguire il collegamento "Cosa c'è dopo?" alla fine di ogni sezione e/o fare clic sui collegamenti delle singole sezioni in ogni pagina del capitolo. L'apprendimento da questo corso sarà più efficace se ti costruirai effettivamente un server Bitcoin (come nel Capitolo 2) e poi eseguirai tutti gli esempi del libro: provare esempi è un'eccellente metodologia di apprendimento.
 
 If you have different levels of skill or want to learn different things, you might skip to different parts of the book:
 
