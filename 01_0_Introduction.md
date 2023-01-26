@@ -54,7 +54,7 @@ Ovviamente, stai seguendo questo corso perché sei interessato a Bitcoin. Oltre 
 * Si prega di utilizzare [Issues](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/issues) per ogni domanda. Blockchain Commons non ha un team di supporto attivo, quindi non possiamo affrontare singoli problemi o domande, ma li esamineremo in tempo e li utilizzeremo per migliorare le future iterazioni del corso.
 * Usate [PRs](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/pulls) per eventuali correzioni di errori di battitura o comandi errati/modificati. Per modifiche su argomenti tecnici o riga di comando, è molto utile utilizzare i commenti PR per spiegare le motivazioni, in modo da non doverlo ricercare.
 * Usate [Community discussions area](https://github.com/BlockchainCommons/Community/discussions) per parlare di competenze e carriera. Blockchain Commons offre occasionalmente stage, come discusso nel nostro repository della community.
-* Per favore [become a patron](https://github.com/sponsors/BlockchainCommons) se trovi utile questo corso o se vuoi aiutare a educare la prossima generazione di programmatori blockchain.s.
+* Per favore [diventa un patreon](https://github.com/sponsors/BlockchainCommons) se trovi utile questo corso o se vuoi aiutare a educare la prossima generazione di programmatori blockchain.s.
 
 ## Cosa c'è dopo?
 
