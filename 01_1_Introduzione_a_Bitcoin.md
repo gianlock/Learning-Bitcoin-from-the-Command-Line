@@ -1,24 +1,24 @@
-# Interlude: Introducing Bitcoin
+# Interludio: Introduzione a Bitcoin
 
-Before you can get started programming Bitcoin (and Lightning), you should have a basic understanding of what they are and how they work. This section provides that overview. Many more definitions will appear within the document itself; this is only intended to lay the foundation.
+Prima di iniziare a programmare Bitcoin (e Lightning), è necessario avere una conoscenza base di cosa sono e come funzionano. Questa sezione fornisce una panoramica di come funzionano e ha il solo scopo di gettare le basi. Troverai molte altre definizioni nei capitoli successivi.
 
-## About Bitcoin
+## Su Bitcoin
 
-Bitcoin is a programmatic system that allows for the transfer of the bitcoin currency. It is enabled by a decentralized, peer-to-peer system of nodes, which include full nodes, wallets, and miners. Working together, they ensure that bitcoin transactions are fast and non-repudiable. Thanks to the decentralized nature of the system, these transactions are also censor-resistant and can provide other advantages such as pseudonymity and non-correlation if used well.
+Bitcoin è un protocollo che consente lo scambio di valuta bitcoin. Si basa su un sistema decentralizzato di nodi peer-to-peer che comprende: nodi completi, wallet e minatori. Queste parti lavorando insieme garantiscono la rapidità e l'autenticità delle transazioni. Grazie alla natura decentralizzata del sistema, queste transazioni sono incensurabili e, se ben utilizzate, possono offrire vantaggi come l'anonimato e la non correlazione.
 
-Obviously, Bitcoin is the heart of this book, but it's also the originator of many other systems, including blockchains and Lightning, which are both detailed in this tutorial, and many other cryptocurrencies such as Ethereum and Litecoin, which are not.
+Ovviamente, Bitcoin è il fulcro intorno a cui ruota questo libro, ha ispirato la creazione di altri sistemi come le blockchain e Lightning, che saranno ben spiegati in questo tutorial, ma ha ispirato anche molte altre shitcoin come Ethereum e Litecoin, che non lo saranno.
 
-**_How Are Coins Transferred?_** Bitcoin currency isn't physical coins. Instead it's an endless series of ownership reassignments. When one person sends coins to another, that transfer is stored as a transaction. It's the transaction that actually records the ownership of the money, not any token local to the owner's wallet or their machine.
+**_Come viene trasferita la moneta?_** La valuta bitcoin non è una moneta fisica ma una serie infinita di passaggi di proprietà. Quando una persona invia denaro ad un'altra, quel trasferimento viene memorizzato. È la transazione che attesta la proprietà del denaro, non la presenza di una moneta nel portafoglio.
 
-**_Who Can You Send Coins To?_** The vast majority of bitcoin transactions involve coins being sent to individual people (or at least to individual Bitcoin addresses). However, more complex methodologies can be used to send bitcoins to groups of people or to scripts. These various methodologies have names like P2PKH, multisig, and P2SH.
+**_A chi puoi inviare monete?_** La stragrande maggioranza delle transazioni di bitcoin comporta l'invio di monete a singole persone (o singoli indirizzi Bitcoin). Tuttavia, è possibile utilizzare metodologie più complesse per inviare bitcoin a gruppi di persone o per eseguire script. Queste varie metodologie hanno nomi come P2PKH, multisig e P2SH.
 
-**_How Are Transactions Stored?_** Transactions are combined into larger blocks of data, which are then written to the blockchain ledger. A block is built in such a way that it cannot be replaced or rewritten once several blocks have been built atop (following) it. This is what makes bitcoins non-repudiable: the decentralized global ledger where everything is recorded is effectively a permanent and unchangeable database.
+**_Come vengono memorizzate le transazioni?_** Le transazioni vengono combinate in grandi blocchi di dati, che vengono poi scritti nel registro blockchain. Un blocco è costruito in modo tale da non poter essere sostituito o modificato una volta che i blocchi sucessivi sono stati costruiti successivamente e in correlazione ad esso. Questo è ciò che rende i bitcoin non ripudiabili: il database globale decentralizzato in cui tutto è registrato è effettivamente un database permanente e immutabile.
 
-However, the process of building these blocks is stochastic: it's somewhat random, so you can never be assured that a transaction will be placed in a specific block. There can also be changes in blocks if they're very recent, but only if they're _very_ recent. So, things become non-repudiable (and permanent and unchangeable) after a little bit of time.
+Tuttavia, il processo di costruzione di questi blocchi è aleatorio, in qualche modo casuale. Data una transazione, non si potrà mai essere certi in quale blocco verrà inserita. Ci possono anche essere cambiamenti nei blocchi se molto recenti, ma solo se _molto_ recenti. Quindi, le transazioni sono autenticate (permanenti e immutabili) solo dopo un po' di blocchi e quindi di tempo.
 
-**_How Are Transactions Protected?_** The funds contained in a Bitcoin transaction are locked with a cryptographic puzzle. These puzzles are designed so that they can be easily solved by the person who the funds were sent to. This is done using the power of public-key cryptography. Technically, a transaction is protected by a signature that proves you're the owner of the public key that a transaction was sent to: this proof of ownership is the puzzle that's being solved.
+**_Come sono protette le transazioni?_** I fondi contenuti in una transazione Bitcoin sono protetti da un puzzle crittografico. Questi enigmi sono progettati in modo che possano essere facilmente risolti dalla persona a cui sono stati inviati i fondi. Questo è possibile utilizzando la potenza della crittografia a chiave pubblica. Tecnicamente, una transazione è protetta da una firma che prova che sei il proprietario della chiave pubblica a cui è stata inviata una transazione: questa prova di proprietà è il rompicapo che si sta risolvendo.
 
-Funds are further protected by the use of hashes. Public keys aren't actually stored in the blockchain until the funds are spent: only public-key hashes are. This means that even if quantum computer were to come along, Bitcoin transactions would remain protected by this second level of cryptography.
+I fondi sono ulteriormente protetti con l'uso di funzioni hash. Le chiavi pubbliche non vengono effettivamente memorizzate nella blockchain fino a quando i fondi non vengono spesi: lo sono solo gli hash delle chiavi pubbliche. Ciò significa che anche con il possibile avvento dei computer quantistici, le transazioni Bitcoin rimarrebbero protette da questo secondo livello di crittografia.
 
 **_How Are Transactions Created?_** The heart of each Bitcoin transaction is a FORTH-like scripting language that is used to lock the transaction. To respend the money, the recipient provides specific information to the script that proves he's the intended recipient.
 
