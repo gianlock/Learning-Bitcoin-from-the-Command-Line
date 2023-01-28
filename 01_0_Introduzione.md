@@ -4,7 +4,7 @@
 
 I metodi di pagamento per beni e servizi sono cambiati radicalmente negli ultimi decenni. Laddove una volta tutte le transazioni venivano effettuate tramite contanti o assegni, ora vari metodi di pagamento elettronico sono la norma. Tuttavia, la maggior parte di questi pagamenti elettronici avviene ancora attraverso sistemi centralizzati, dove società, banche o persino istituti finanziari basati su Internet come PayPal tengono lunghi elenchi di transazioni singolarmente correlate e hanno potere di censura sulle transazioni non gradite.
 
-Questi rischi legati alla centralizzazione sono stati i catalizzatori alla base della creazione delle criptovalute, la quale prima e più di successo è Bitcoin. Bitcoin offre anonimato, rende difficile correlare le transazioni e quasi impossibile la censura da parte di singole entità. Questi vantaggi lo hanno reso una delle valute in più rapida crescita al mondo. Questa crescita, a sua volta, ha creato un mercato attorno a Bitcoin dove sviluppatori e imprenditori forgiano nuovi servizi per la comunità Bitcoin.
+Questi rischi legati alla centralizzazione sono stati i catalizzatori alla base della creazione delle criptovalute, la prima e più importante delle quali è Bitcoin. Bitcoin offre anonimato, rende difficile correlare le transazioni e quasi impossibile la censura da parte di singole entità. Questi vantaggi lo hanno reso una delle valute in più rapida crescita al mondo. Questa crescita, a sua volta, ha attratto imprenditori e sviluppatori in tutto il mondo, pronti a creare nuovi servizi per la comunità Bitcoin.
 
 Se sei uno di questi imprenditori o sviluppatori, questo corso fa al caso tuo, in quanto imparerai a programmare in Bitcoin. È un corso introduttivo che gradualmente ti spiegherà tutte le sfumature e caratteristiche di Bitcoin. Potrai inoltre studiare in maniera specifica come usare Bitcoin Core e c-lightining server usando le loro interfacce RPC (Remote Procedure Call, Chiamata di procedura remota).
 
@@ -54,7 +54,7 @@ Ovviamente, stai seguendo questo corso perché sei interessato a Bitcoin. Oltre 
 * Si prega di utilizzare [Issues](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/issues) per ogni domanda. Blockchain Commons non ha un team di supporto attivo, quindi non possiamo affrontare singoli problemi o domande, ma li esamineremo in tempo e li utilizzeremo per migliorare le future iterazioni del corso.
 * Usate [PRs](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/pulls) per eventuali correzioni di errori di battitura o comandi errati/modificati. Per modifiche su argomenti tecnici o riga di comando, è molto utile utilizzare i commenti PR per spiegare le motivazioni, in modo da non doverlo ricercare.
 * Usate [Community discussions area](https://github.com/BlockchainCommons/Community/discussions) per parlare di competenze e carriera. Blockchain Commons offre occasionalmente stage, come discusso nel nostro repository della community.
-* Per favore [diventa un patreon](https://github.com/sponsors/BlockchainCommons) se trovi utile questo corso o se vuoi aiutare a educare la prossima generazione di programmatori blockchain.s.
+* Per favore [diventa un patreon](https://github.com/sponsors/BlockchainCommons) se trovi utile questo corso o se vuoi aiutare a educare la prossima generazione di programmatori blockchain.
 
 ## Cosa c'è dopo?
 
