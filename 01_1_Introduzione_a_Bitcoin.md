@@ -1,8 +1,8 @@
-# Interludio: Introduzione a Bitcoin
+# Intermezzo: Introduzione a Bitcoin
 
 Prima di iniziare a programmare Bitcoin (e Lightning), è necessario avere una conoscenza base di cosa sono e come funzionano. Questa sezione fornisce una panoramica di come funzionano e ha il solo scopo di gettare le basi. Troverai molte altre definizioni nei capitoli successivi.
 
-## Su Bitcoin
+## Bitcoin
 
 Bitcoin è un protocollo che consente lo scambio di valuta bitcoin. Si basa su un sistema decentralizzato di nodi peer-to-peer che comprende: nodi completi, wallet e minatori. Queste parti lavorando insieme garantiscono la rapidità e l'autenticità delle transazioni. Grazie alla natura decentralizzata del sistema, queste transazioni sono incensurabili e, se ben utilizzate, possono offrire vantaggi come l'anonimato e la non correlazione.
 
@@ -20,27 +20,27 @@ Tuttavia, il processo di costruzione di questi blocchi è aleatorio, in qualche 
 
 I fondi sono ulteriormente protetti con l'uso di funzioni hash. Le chiavi pubbliche non vengono effettivamente memorizzate nella blockchain fino a quando i fondi non vengono spesi: lo sono solo gli hash delle chiavi pubbliche. Ciò significa che anche con il possibile avvento dei computer quantistici, le transazioni Bitcoin rimarrebbero protette da questo secondo livello di crittografia.
 
-**_How Are Transactions Created?_** The heart of each Bitcoin transaction is a FORTH-like scripting language that is used to lock the transaction. To respend the money, the recipient provides specific information to the script that proves he's the intended recipient.
+**_Come sono create le transazioni?_** Il cuore di ogni transazione Bitcoin è un linguaggio di scripting simile a FORTH che viene utilizzato per bloccare la transazione. Per riutilizzare il denaro, il destinatario fornisce allo script informazioni specifiche che dimostrano che è il destinatario legittimo.
 
-However, these Bitcoin scripts are the lowest level of Bitcoin functionality. Much Bitcoin work is done through the `bitcoind` Bitcoin daemon, which is controlled through RPC commands. Many people send those RPC commands through the `bitcoin-cli` program, which provides an even simpler interface. Non-programmers don't even worry about these minutia, but instead use programmed wallets with simpler interfaces.
+Tuttavia, questi script Bitcoin rappresentano il codice a più basso livello di Bitcoin. Gran parte del lavoro di Bitcoin viene svolto attraverso il deamon Bitcoin `bitcoind`, che viene controllato attraverso comandi RPC. Molti inviano questi comandi RPC attraverso il programma `bitcoin-cli`, che fornisce un'interfaccia semplificata. Tuttavia l'utente medio non avezzo alla programmazione non si preoccupa nemmeno di queste minuzie, ma utilizza portafogli con interfacce ancora più semplificate.
 
-### Bitcoin — In Short
+### Bitcoin — In Breve
 
-One way to think of Bitcoin is as _a sequence of atomic transactions_. Each transaction is authenticated by a sender with the solution to a previous cryptographic puzzle that was stored as a script. The new transaction is locked for the recipient with a new cryptographic puzzle that is also stored as a script. Every transaction is recorded in an immutable global ledger.
+Un modo per pensare a Bitcoin è come _una sequenza di transazioni indivisibili_. Ogni transazione è autenticata da un mittente con la soluzione di un precedente puzzle crittografico memorizzato come script. La nuova transazione viene bloccata dal destinatario con un nuovo enigma crittografico, anch'esso memorizzato come script. Ogni transazione è registrata in un libro mastro globale e immutabile.
 
-## About Public-Key Cryptography
+## Crittografia a chiave Pubblica
 
-Public-key cryptography is a mathematical system for protecting data and proving ownership through an asymmetric pair of linked keys: the public key and the private key.
+La crittografia a chiave pubblica è un sistema matematico per proteggere i dati e dimostrarne la proprietà attraverso una coppia asimmetrica di chiavi collegate: la chiave pubblica e la chiave privata.
 
-It's important to Bitcoin (and to most blockchain systems) because it's the basis of a lot of the cryptography that protects the cryptocurrency funds. A Bitcoin transaction is typically sent to an address that is a hashed public key. The recipient is then able to retrieve the money by revealing both the public key and the private key.
+È importante per Bitcoin (e per la maggior parte dei sistemi blockchain) perché è la base della crittografia che protegge i fondi della criptovaluta. Una transazione Bitcoin viene tipicamente inviata ad un indirizzo che è un hash della chiave pubblica. Il destinatario è quindi in grado di recuperare il denaro rivelando la chiave pubblica e quella privata.
 
-**_What Is a Public Key?_** A public key is the key given out to other people. In a typical public-key system, a user generates a public key and a private key, then he gives the public key to all and sundry. Those recipients can encrypt information with the public key, but it can't be decrypted with the same public key because of the asymmetry of the key pair.
+**_Cos'è una chiave Pubblica?_** Una chiave pubblica è la chiave che viene data ad altre persone. In un tipico sistema a chiave pubblica, un utente genera una chiave pubblica e una chiave privata, poi dà la chiave pubblica a tutti. I destinatari possono criptare le informazioni con la chiave pubblica, ma non possono decifrarle con la stessa chiave pubblica a causa dell'asimmetria della coppia di chiavi.
 
-**_What Is a Private Key?_** A private key is linked to a public key in a key pair. In a typical public-key system, a user keeps his private key secure and uses it to decrypt messages that were encrypted with his public key before being sent to him.
+**_Cos'è una chiave Privata??_** Una chiave privata è la chiave collegata a quella pubblica in una coppia di chiavi. In un tipico sistema a chiave pubblica, un utente tiene al sicuro la sua chiave privata e la usa per decifrare i messaggi che sono stati crittografati con la chiave pubblica corrispondente.
 
-**_What Is a Signature?_** A message (or more commonly, a hash of a message) can be signed with a private key, creating a signature. Anyone with the corresponding public key can then validate the signature, which verifies that the signer owns the private key associated with the public key in question. _SegWit_ is a specific format for storing a signature on the Bitcoin network that we'll meet down the line.
+**_Che cos'è una Firma?_** Un messaggio (o più comunemente un hash di un messaggio) può essere firmato con una chiave privata, creando appunto una firma. Chiunque possieda la chiave pubblica corrispondente può quindi convalidare la firma, verificando che il firmatario possiede la chiave privata associata alla chiave pubblica in questione. _SegWit_ è un formato specifico per la memorizzazione di una firma sulla rete Bitcoin che incontreremo più avanti.
 
-**_What Is a Hash Function?_** A hash function is an algorithm frequently used with cryptography. It's a way to map a large, arbitrary amount of data to a small, fixed amount of data. Hash functions used in cryptography are one-way and collision-resistant, meaning that a hash can reliably be linked to the original data, but the original data can not be regenerated from the hash. Hashes thus allow the transmission of small amounts of data to represent large amounts of data, which can be important for efficiency and storage requirements.
+**_Che cos'è una funzione Hash?_** Una funzione di hash è un algoritmo spesso utilizzato nella crittografia. È un modo per mappare una grande quantità arbitraria di dati in una piccola quantità fissa di dati. Le funzioni hash utilizzate in crittografia sono unidirezionali e resistenti alle collisioni, il che significa che un hash può essere collegato in modo affidabile ai dati originali, ma i dati originali non possono essere rigenerati dall'hash. Gli hash consentono quindi la trasmissione di piccole quantità di dati per rappresentare grandi quantità di dati, il che può essere importante per l'efficienza e i requisiti di archiviazione.
 
 Bitcoin takes advantage of a hash's ability to disguise the original data, which allows concealment of a user's actual public key, making transactions resistant to quantum computing.
 
