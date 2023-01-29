@@ -36,27 +36,27 @@ La crittografia a chiave pubblica è un sistema matematico per proteggere i dati
 
 **_Cos'è una chiave Pubblica?_** Una chiave pubblica è la chiave che viene data ad altre persone. In un tipico sistema a chiave pubblica, un utente genera una chiave pubblica e una chiave privata, poi dà la chiave pubblica a tutti. I destinatari possono criptare le informazioni con la chiave pubblica, ma non possono decifrarle con la stessa chiave pubblica a causa dell'asimmetria della coppia di chiavi.
 
-**_Cos'è una chiave Privata??_** Una chiave privata è la chiave collegata a quella pubblica in una coppia di chiavi. In un tipico sistema a chiave pubblica, un utente tiene al sicuro la sua chiave privata e la usa per decifrare i messaggi che sono stati crittografati con la chiave pubblica corrispondente.
+**_Cos'è una chiave Privata?_** Una chiave privata è la chiave collegata a quella pubblica in una coppia di chiavi. In un tipico sistema a chiave pubblica, un utente tiene al sicuro la sua chiave privata e la usa per decifrare i messaggi che sono stati crittografati con la chiave pubblica corrispondente.
 
 **_Che cos'è una Firma?_** Un messaggio (o più comunemente un hash di un messaggio) può essere firmato con una chiave privata, creando appunto una firma. Chiunque possieda la chiave pubblica corrispondente può quindi convalidare la firma, verificando che il firmatario possiede la chiave privata associata alla chiave pubblica in questione. _SegWit_ è un formato specifico per la memorizzazione di una firma sulla rete Bitcoin che incontreremo più avanti.
 
 **_Che cos'è una funzione Hash?_** Una funzione di hash è un algoritmo spesso utilizzato nella crittografia. È un modo per mappare una grande quantità arbitraria di dati in una piccola quantità fissa di dati. Le funzioni hash utilizzate in crittografia sono unidirezionali e resistenti alle collisioni, il che significa che un hash può essere collegato in modo affidabile ai dati originali, ma i dati originali non possono essere rigenerati dall'hash. Gli hash consentono quindi la trasmissione di piccole quantità di dati per rappresentare grandi quantità di dati, il che può essere importante per l'efficienza e i requisiti di archiviazione.
 
-Bitcoin takes advantage of a hash's ability to disguise the original data, which allows concealment of a user's actual public key, making transactions resistant to quantum computing.
+Bitcoin sfrutta la capacità di un hash di mascherare i dati originali, il che consente di nascondere la chiave pubblica di un utente, rendendo le transazioni resistenti al calcolo quantistico.
 
-### Public-Key Cryptography — In Short
+### Crittografia a chiave pubblica - In breve
 
-One way to think of public-key cryptography is: _a way for anyone to protect data such that only an authorized person can access it, and such that the authorized person can prove that he will have that access._
+Si può pensare alla crittografia a chiave pubblica come: _Un metodo per proteggere i dati in modo che solo una persona autorizzata possa accedervi e che la persona autorizzata possa dimostrare di avere tale accesso._
 
-## About ECC
+## ECC
 
-ECC stands for elliptic-curve cryptography. It's a specific branch of public-key cryptography that depends on mathematical calculations conducted using elliptic curves defined over finite fields. It's more complex and harder to explain than classic public-key cryptography (which used prime numbers), but it has some nice advantages.
+ECC è l'acronimo di Crittografia a Curve Ellittiche. È una tipologia di crittografia a chiave pubblica basata sull'utilizzo di curve ellittiche definite su campi finiti. È più complessa e più difficile da spiegare rispetto alla crittografia a chiave pubblica classica (che utilizza i numeri primi), ma presenta alcuni vantaggi interessanti.
 
-ECC does not receive much attention in this tutorial. That's because this tutorial is all about integrating with Bitcoin Core and Lightning servers, which have already taken care of the cryptography for you. In fact, this tutorial's intention is that you don't have to worry about cryptography at all, because that's something that you _really_ want experts to deal with.
+L'ECC non verrà trattato con molta attenzione in questo tutorial. Questo perché il corso è incentrato sull'integrazione con i server Bitcoin Core e Lightning, della crittografia se ne occuperanno loro. In effetti, l'intento di questo tutorial è quello di non farvi preoccupare di aspetti molto tecnici come quello della crittografia, che verranno trattati dagli esperti.
 
-**_What is an Elliptic Curve?_** An elliptic curve is a geometric curve that takes the form `y`<sup>`2`</sup> = `x`<sup>`3`</sup>` + ax + b`. A specific elliptic curve is chosen by selecting specific values of `a` and `b`. The curve must then be carefully examined to determine if it works well for cryptography. For example, the secp256k1 curve used by Bitcoin is defined as `a=0` and `b=7`.
+**_Cos'è una Curva Ellittica?_** Una curva ellittica è una curva geometrica descritta dall'equazione `y`<sup>`2`</sup> = `x`<sup>`3`</sup>` + ax + b`. Una curva ellittica specifica viene scelta selezionando valori specifici di "a" e "b". La curva deve quindi essere attentamente esaminata per determinare se funziona bene per la crittografia. Ad esempio, la curva secp256k1 utilizzata da Bitcoin è definita come `a=0` e `b=7`.
 
-Any line that intersects an elliptic curve will do so at either 1 or 3 points ... and that's the basis of elliptic-curve cryptography.
+Qualsiasi linea che interseca una curva ellittica lo farà in 1 o 3 punti... e questa è la base della crittografia a curva ellittica.
 
 **_What are Finite Fields?_** A finite field is a finite set of numbers, where all addition, subtraction, multiplication, and division is defined so that it results in other numbers also in the same finite field. One simple way to create a finite field is through the use of a modulo function.
 
