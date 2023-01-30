@@ -1,6 +1,6 @@
 # Imparare Bitcoin dalla Linea di Comando 2.2.0
 ### _di Christopher Allen e Shannon Appelcline_
-### _tradotto da gianlock e_
+### _tradotto da gianlock e enricobrik_
 
 ![](https://www.blockchaincommons.com/images/projects/lbtc-screen.png)
 
@@ -44,10 +44,10 @@ Se desideri fare la tua traduzione, per favore guarda [Contributing](https://git
 * [4.0: Inviare Transazioni Bitcoin](04_0_Inviare_Transazioni_Bitcoin.md)
   * [4.1: Inviare Monete nel Modo Semplice](04_1_Inviare_Monete_Modo_Semplice.md)
   * [4.2: Creare una Transazione Grezza](04_2_Creare_una_Transaction_Grezza.md)
-     * [Intermezzo: Usare JQ](04_2__Intermezzo_Usare_JQ.md)
+    * [Intermezzo: Usare JQ](04_2__Intermezzo_Usare_JQ.md)
   * [4.3: Creare una Transazione Grezza con Argomenti Denominati](04_3_Creare_una_Transazione_Grezza_con_Argomenti_Denominati.md)
   * [4.4: Inviare Monete con Transazioni Grezze](04_4_Inviare_Coins_con_una_Transazione_Grezza.md)
-     * [Intermezzo: Usare Curl](04_4__Intermezzo_Usare_Curl.md)
+    * [Intermezzo: Usare Curl](04_4__Intermezzo_Usare_Curl.md)
   * [4.5: Inviare Monete con Transazioni Grezze Automatizzate](04_5_Inviare_Monete_con_Transazioni_Grezze_Automatizzate.md)
   * [4.6: Creare una Transazione Segwit](04_6_Creare_una_Transazione_Segwit.md)
 * [5.0: Monitorare le Transazioni Bitcoin](05_0_Monitorare_le_Transazioni_Bitcoin.md)
@@ -116,13 +116,13 @@ Se desideri fare la tua traduzione, per favore guarda [Contributing](https://git
   * [16.2: Programmare Bitcoind in C con Librerie RPC](16_2_Programmare_Bitcoind_con_C.md)
   * [16.3: Ricevere Notifiche in C con Librerie ZMQ](16_3_Ricevere_Notifiche_Bitcoind_con_C.md)
 * [17.0: Programmare Bitcoin con Libwally](17_0_Programmare_con_Libwally.md)
-   * [17.1: Configurare Libwally](17_1_Configurare_Libwally.md)
-   * [17.2: Usare BIP39 con Libwally](17_2_Usare_BIP39_con_Libwally.md)
-   * [17.3: Usare BIP32 con Libwally](17_3_Usare_BIP32_con_Libwally.md)
-   * [17.4: Usare PSBTs con Libwally](17_4_Usare_PSBTs_con_Libwally.md)
-   * [17.5: Usare Script con Libwally](17_5_Usare_Script_con_Libwally.md)
-   * [17.6: Usare Altre Funzioni con Libwally](17_6_Usare_Altre_Funzioni_con_Libwally.md)
-   * [17.7: Integrare Libwally e Bitcoin-CLI](17_7_Integrare_Libwally_e_Bitcoin-CLI.md)
+  * [17.1: Configurare Libwally](17_1_Configurare_Libwally.md)
+  * [17.2: Usare BIP39 con Libwally](17_2_Usare_BIP39_con_Libwally.md)
+  * [17.3: Usare BIP32 con Libwally](17_3_Usare_BIP32_con_Libwally.md)
+  * [17.4: Usare PSBTs con Libwally](17_4_Usare_PSBTs_con_Libwally.md)
+  * [17.5: Usare Script con Libwally](17_5_Usare_Script_con_Libwally.md)
+  * [17.6: Usare Altre Funzioni con Libwally](17_6_Usare_Altre_Funzioni_con_Libwally.md)
+  * [17.7: Integrare Libwally e Bitcoin-CLI](17_7_Integrare_Libwally_e_Bitcoin-CLI.md)
 * [18.0: Parlare con Bitcoind in Altri Linguaggi](18_0_Parlare_con_Bitcoind_Altro.md)
   * [18.1: Accedere a Bitcoind in Go](18_1_Accedere_Bitcoind_in_Go.md)
   * [18.2: Accedere a Bitcoind in Java](18_2_Accedere_Bitcoind_in_Java.md)
@@ -138,12 +138,12 @@ Se desideri fare la tua traduzione, per favore guarda [Contributing](https://git
 * [19.0: Capire la Tua Configurazione Lightning](19_0_Capire_Configurazione_Lightning.md)
   * [19.1: Verificare la Tua Configurazione c-lightning](19_1_Verificare_Configurazione_Lightning.md)
   * [19.2: Conoscere la Tua Configurazione c-lightning](19_2_Conoscere_Configurazione_Lightning.md)
-     * [Intermezzo: Accedere a un Second Nodo Lightning](19_2__Intermezzo_Accedere_a_Secondo_Nodo_Lightning.md)
+    * [Intermezzo: Accedere a un Second Nodo Lightning](19_2__Intermezzo_Accedere_a_Secondo_Nodo_Lightning.md)
   * [19.3: Creare un Canale Lightning](19_3_Creare_un_Canale.md)
 * [20.0: Usare Lightning](20_0_Usare_Lightning.md)
   * [20.1: Generare una Rechiesta di Pagamento](20_1_Generare_Richiesta_Pagamento.md)
   * [20.2: Pagare una Invoice](20_2_Pagare_una_Invoice.md)
-  * [20.3: Chiudere un Canale Lighnting Channel]((20_3_Chiudere_un_Canale.md))
+  * [20.3: Chiudere un Canale Lighnting Channel](20_3_Chiudere_un_Canale.md)
   * [20.4: Espandere la Rete Lightning](20_4_Espandere_Rete_Lightning.md)
 
 ### APPENDICI
@@ -193,20 +193,18 @@ Se la tua società necessitasse di supporto per l'utilizzo dei nostri progetti, 
 
 Le persone seguenti hanno contribuito direttamente a questa repository. Potete aggiungere il vostro nome qui partecipando. Il primo passo è leggere la documentazione per scoprire come [CONTRIBUIRE.md](./CONTRIBUIRE.md).
 
-
 | Nome              | Ruolo                | Github                                            | Email                                 | Impronta Digitale GPG                                    |
 | ----------------- | ------------------- | ------------------------------------------------- | ------------------------------------- | -------------------------------------------------- |
-| Christopher Allen | Autore Principale | [@ChristopherA](https://github.com/ChristopherA) | \<ChristopherA@LifeWithAlacrity.com\> | FDFE 14A5 4ECB 30FC 5D22  74EF F8D3 6C91 3574 05ED |
-| Shannon Appelcline |  Autore Principale | [@shannona](https://github.com/shannona) | \<shannon.appelcline@gmail.com\> | 7EC6 B928 606F 27AD |
-
+| Christopher Allen | Autore Principale | [@ChristopherA](https://github.com/ChristopherA) | <ChristopherA@LifeWithAlacrity.com> | FDFE 14A5 4ECB 30FC 5D22 74EF F8D3 6C91 3574 05ED |
+| Shannon Appelcline | Autore Principale | [@shannona](https://github.com/shannona) | <shannon.appelcline@gmail.com> | 7EC6 B928 606F 27AD |
 
 Ulteriori contributori sono riportati sotto:
 
 | Ruolo                | Nomi                                    |
 | ------------------- | ---------------------------------------- |
-| ***Contributori:*** | [gg2001](https://github.com/gg2001) (Sezioni Go, Node.js), [gorazdko](https://github.com/gorazdko) (sezione Rust), [Javier Vargas](https://github.com/javiervargas) (Sezioni C, Java, Lightning, Tor), [jodobear](https://github.com/jodobear) (Appendice: Compilare Bitcoin, sezione Python), [Prayank](    https://github.com/prayank23) (Sezioni i2p)                               |
-| ***Revisori:***    | Glen Willem [@gwillem](https://github.com/gwillem) |
-| ***Sponsor:***     | Blockstream Corporation                  |
+| ***Contributori:*** | [gg2001](https://github.com/gg2001) (Sezioni Go, Node.js), [gorazdko](https://github.com/gorazdko) (sezione Rust), [Javier Vargas](https://github.com/javiervargas) (Sezioni C, Java, Lightning, Tor), [jodobear](https://github.com/jodobear) (Appendice: Compilare Bitcoin, sezione Python), [Prayank](https://github.com/prayank23) (Sezioni i2p) |
+| ***Revisori:*** | Glen Willem [@gwillem](https://github.com/gwillem) |
+| ***Sponsor:*** | Blockstream Corporation |
 
 ### Crediti di Traduzione
 
@@ -216,15 +214,15 @@ Grazie ai volontari che trascorrono molto tempo a scrivere e revisionare le trad
 
 | Nome              | Ruolo                | Github                                            | 
 | ----------------- | ------------------- | ------------------------------------------------- | 
-| Namcios | Traduttore & Revisore | [@namcios](https://github.com/namcios) | 
-| Korea | Traduttore & Revisore | [@KoreaComK](https://github.com/KoreaComK) | 
-| Luke Pavsky | Traduttore & Revisore | [@lukedevj](https://github.com/lukedevj) | 
-| hgrams | Traduttore & Revisore | [@hgrams](https://github.com/hgrams) | 
+| Namcios | Traduttore & Revisore | [@namcios](https://github.com/namcios) |
+| Korea | Traduttore & Revisore | [@KoreaComK](https://github.com/KoreaComK) |
+| Luke Pavsky | Traduttore & Revisore | [@lukedevj](https://github.com/lukedevj) |
+| hgrams | Traduttore & Revisore | [@hgrams](https://github.com/hgrams) |
 
 #### Traduzione Spagnola
 
- Nome | Ruolo | GitHub |
-| ---------- | -------- | ------------ |
+| Nome              | Ruolo                | Github                                            | 
+| ----------------- | ------------------- | ------------------------------------------------- | 
 | Ian Culp | Traduttore & Revisore | [@icculp](https://github.com/icculp) |
 | Maxi Goyheneche | Traduttore | [@maxcrowar](https://github.com/maxcrowar) |
 | Said Rahal | Traduttore | [@srahalh](https://github.com/srahalh) |
@@ -233,8 +231,8 @@ Grazie ai volontari che trascorrono molto tempo a scrivere e revisionare le trad
 
 #### Traduzione Italiana
 
- Nome | Ruolo | GitHub |
-| ---------- | -------- | ------------ |
+| Nome              | Ruolo                | Github                                            | 
+| ----------------- | ------------------- | ------------------------------------------------- | 
 | Gian | Traduttore & Revisore | [@gianlock](https://github.com/gianlock) |
 | Brik | Traduttore & Revisore | [@enricobrik](https://github.com/enricobrik) |
 
@@ -252,6 +250,6 @@ La seguente chiave può essere usata per comunicare informazioni sensibili agli 
 
 | Nome| Impronta Digitale                                       |
 | ----------------- | -------------------------------------------------- |
-| Christopher Allen | FDFE 14A5 4ECB 30FC 5D22  74EF F8D3 6C91 3574 05ED |
+| Christopher Allen | FDFE 14A5 4ECB 30FC 5D22 74EF F8D3 6C91 3574 05ED |
 
 Puoi importare una chiave eseguendo il seguente comando con l'impronta digitale sopra riportata: `gpg --recv-keys "<fingerprint>"`. Assicurati di inserire l'impronta digitale contenente gli spazi tra virgolette.
