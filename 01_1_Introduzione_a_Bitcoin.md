@@ -60,68 +60,68 @@ Qualsiasi linea che interseca una curva ellittica lo farà in 1 o 3 punti... e q
 
 **_Cosa sono i campi finiti?_** Un campo finito è un insieme finito di numeri, in cui i risultati di tutte le addizioni, sottrazioni, moltiplicazioni e divisioni sono compresi nello stesso campo finito. Un modo semplice per creare un campo finito è attraverso l'uso di una funzione modulo.
 
-**_Come viene definita una curva ellittica su un campo finito?_** Una curva ellittica definita su un campo finito possiede i punti della curva tracciati da un campo finito specifico. Questo assume la forma: `y`<sup>`2`</sup> `% grandezza-campo = (x`<sup>`3`</sup>` + ax + b) % grandezza-campo` Il campo finito usato per la curva ellittica secp256k1 è: `2`<sup>`256`</sup>` - 2`<sup>`32`</sup>` - 2`<sup>`9`</sup>` - 2`<sup>`8`</sup>` - 2`<sup>`7`</sup>` - 2`<sup>`6`</sup>` - 2`<sup>`4`</sup>` - 1`.
+**_Come viene definita una curva ellittica su un campo finito?_** Una curva ellittica definita su campo finito possiede i punti della curva tracciati da un campo finito specifico. Questo assume la forma: `y`<sup>`2`</sup> `% GrandezzaCampo = (x`<sup>`3`</sup>` + ax + b) % GrandezzaCampo` Il campo finito usato per la curva ellittica secp256k1 è: `2`<sup>`256`</sup>` - 2`<sup>`32`</sup>` - 2`<sup>`9`</sup>` - 2`<sup>`8`</sup>` - 2`<sup>`7`</sup>` - 2`<sup>`6`</sup>` - 2`<sup>`4`</sup>` - 1`.
 
-**_Come vengono utilizzate le curve ellittiche nella crittografia?_** Nella crittografia a curva ellittica, un utente seleziona un numero molto grande (256 bit) come chiave privata. Quindi aggiunge un punto base impostato sulla curva a se stesso tante volte. (In secp256k1, il punto base è `G = 04 79BE667E F9DCBBAC 55A06295 CE870B07 029BFCDB 2DCE28D9 59F2815B 16F81798 483ADA77 26A3C465 5DA4FBFC 0E1108A8 FD17B448 A695D48FFBD 483ADA77 26A3C465 5DA4FBFC 0E1108A8 FD17B448 A695D48FFBD', che antepone alle due parti della tupla uno "04" per indicare che il punto dati è in formato non compresso. Se preferisci una definizione geometrica lineare, è il punto "0x79BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798,0x483ADA7726A3C4655DA4FBFC0E1108A8FD17B448A68554199C47D08FFB10D4B8") Il numero risultante è la chiave pubblica. Varie formule matematiche possono quindi essere utilizzate per dimostrare la proprietà della chiave pubblica, data la chiave privata. Come con qualsiasi funzione crittografica, questa è una botola: è facile passare dalla chiave privata alla chiave pubblica e in gran parte impossibile passare dalla chiave pubblica alla chiave privata.
+**_Come vengono utilizzate le curve ellittiche nella crittografia?_** Nella crittografia a curva ellittica, un utente seleziona un numero molto grande (256 bit) come chiave privata. Quindi aggiunge un punto base impostato sulla curva a se stesso tante volte. (In secp256k1, il punto base è `G = 04 79BE667E F9DCBBAC 55A06295 CE870B07 029BFCDB 2DCE28D9 59F2815B 16F81798 483ADA77 26A3C465 5DA4FBFC 0E1108A8 FD17B448 A695D48FFBD 483ADA77 26A3C465 5DA4FBFC 0E1108A8 FD17B448 A695D48FFBD', che antepone alle due parti della tupla uno "04" per indicare che il punto dati è in formato non compresso. Se preferisci una definizione geometrica lineare, è il punto "0x79BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798,0x483ADA7726A3C4655DA4FBFC0E1108A8FD17B448A68554199C47D08FFB10D4B8") Il numero risultante è la chiave pubblica. Varie formule matematiche possono quindi essere utilizzate per dimostrare la proprietà della chiave pubblica, data la chiave privata. Questa è una funzione a senso unico: è facile passare dalla chiave privata alla chiave pubblica e quasi impossibile passare dalla chiave pubblica alla chiave privata.
 
-In elliptic-curve cryptography, a user selects a very large (256-bit) number as his private key. He then adds a set base point on the curve to itself that many times. (In secp256k1, the base point is `G = 04 79BE667E F9DCBBAC 55A06295 CE870B07 029BFCDB 2DCE28D9 59F2815B 16F81798 483ADA77 26A3C465 5DA4FBFC 0E1108A8 FD17B448 A6855419 9C47D08F FB10D4B8`, which prefixes the two parts of the tuple with an `04` to say that the data point is in uncompressed form. If you prefer a straight geometric definition, it's the point "0x79BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798,0x483ADA7726A3C4655DA4FBFC0E1108A8FD17B448A68554199C47D08FFB10D4B8") The resultant number is the public key. Various mathematical formula can then be used to prove ownership of the public key, given the private key. As with any cryptographic function, this one is a trap door: it's easy to go from private key to public key and largely impossible to go from public key to private key.
+Questa particolare proprietà spiega perché i campi finiti vengono utilizzati nelle curve ellittiche: garantisce che la chiave privata non diventi troppo grande. Si noti che il campo finito per secp256k1 è leggermente inferiore a 256 bit, il che significa che tutte le chiavi pubbliche saranno lunghe 256 bit, proprio come lo sono le chiavi private.
 
-This particular methodology also explains why finite fields are used in elliptic curves: it ensures that the private key will not grow too large. Note that the finite field for secp256k1 is slightly smaller than 256 bits, which means that all public keys will be 256 bits long, just like the private keys are.
+**_Quali sono i vantaggi dell'ECC?_** Il vantaggio principale dell'ECC è di consertire un livello di sicurezza della classica crittografia a chiave pubblica con una chiave molto più piccola. Una chiave pubblica a curva ellittica a 256 bit corrisponde a una chiave pubblica tradizionale (RSA) a 3072 bit.
 
-**_What Are the Advantages of ECC?_** The main advantage of ECC is that it allows the same security as classic public-key cryptography with a much smaller key. A 256-bit elliptic-curve public key corresponds to a 3072-bit traditional (RSA) public key.
+### ECC - In Breve
 
-### ECC - In Short
+Possiamo pensare all'ECC come: _un modo di usare la crittografia a chiave pubblica che sfrutta chiavi molto piccole e matematica complessa._
 
-One way to think of ECC is: _a way to enable public-key cryptography that uses very small keys and very obscure math._
+## Sulle Blockchain
 
-## About Blockchains
+La Blockchain è la generalizzazione del metodo utilizzato da Bitcoin per creare un registro globale distribuito. Come tante altre criptovalue alternative, Bitcoin è una blockchain, ognuna delle quali vive sulla propria rete e scrive sulla propria catena. Anche le sidechain come Liquid sono blockchain. Le blockchain non hanno il bisogno di avere a che fare con il mondo della finanza. Ad esempio, ci sono state molte discussioni sull'utilizzo di blockchain per proteggere le identità auto-sovrane.
 
-Blockchain is the generalization of the methodology used by Bitcoin to create a distributed global ledger. Bitcoin is a blockchain as are any number of alt-coins, each of which lives on its own network and writes to its own chain. Sidechains like Liquid are blockchains too. Blockchains don't even need to have anything to do with finances. For example, there have been many discussions of using blockchains to protect self-sovereign identities.
+Sebbene tu debba comprendere le basi di come funziona una blockchain per capire come funzionano le transazioni in Bitcoin, non avrai bisogno di andare oltre. Poiché le blockchain sono diventate una vasta categoria di tecnologie, questi concetti di base saranno probabilmente applicabili a molti altri progetti in questo settore. Tuttavia, i comandi di programmazione appresi in questo libro non lo saranno, poiché specifici per Bitcoin (e Lightning).
 
-Though you need to understand the basics of how a blockchain works to understand how transactions work in Bitcoin, you won't need to go any further than that. Because blockchains have become a wide category of technology, those basic concepts are likely to be applicable to many other projects in this growing technology sector. The specific programming commands learned in this book will not be, however, as they're fairly specific to Bitcoin (and Lightning).
+**_Perché si chiama chain (catena)?_** Ogni blocco nella blockchain memorizza un hash del blocco precedente. Questo collega il blocco attuale fino al primo blocco originale (Blocco Genesi), attraverso una catena ininterrotta. È un modo per creare un ordine assoluto tra dati potenzialmente in conflitto. Poichè ogni blocco è costruito al di sopra di quello precedente attraverso un algoritmo di Proof-of-Work (Prova di Lavoro), più blocchi verranno costruiti, più la catena sarà computazionalmente sconveniente da ricorstruire. Questo rende una blockchain irreversibile e quindi sicura.
 
-**_Why Is It Called a Chain?_** Each block in the blockchain stores a hash of the block before it. This links the current block all the way back to the original "genesis block" through an unbroken chain. It's a way to create absolute order among possibly conflicting data. This also provides the security of blockchain, because each block is stacked atop an old one makes it harder to recreate the old block due to the proof-of-work algorithms used in block creation. Once several blocks have been built atop a block in the chain, it's essentially irreversible.
+**_Cos'è un Fork?_** Occasionalmente vengono creati due blocchi nello stesso momento. Questo crea temporaneamente un fork di un blocco, dove entrambi i blocchi potrebbero essere quelli "reali". Di tanto in tanto, un fork potrebbe espandersi fino a diventare lungo due, tre o anche quattro blocchi, ma abbastanza rapidamente si determinerà che solo uno dei fork è quello accettato, mentre l'altro sarà considerato "orfano". Questo fa parte del processo stocastico di creazione dei blocchi e dimostra perché diversi blocchi devono essere costruiti nella blockchain prima che possa essere considerato valido e non ripudiabile.
 
-**_What is a Fork?_** Occasionally two blocks are created around the same time. This temporarily creates a one-block fork, where either if the current blocks could be the "real" one. Every once in a while, a fork might expand to become two blocks, three blocks, or even four blocks long, but pretty quickly one side of the fork is determined to be the real one, and the other is "orphaned". This is part of the stochastic process of block creation, and demonstrates why several blocks must be built atop a block before it can be considered truly trustworthy and non-repudiable.
+### Blockchain — In Breve
 
-### Blockchain — In Short
+Un modo di pensare alla blockchain è: _una serie di blocchi di dati immutabili, retroattivamente riconducibili_. Un altro modo è: _una serie di blocchi collegati per ordinare in modo assoluto i dati che potrebbero essere in conflitto_.
 
-One way to think of blockchain is: _a linked series of blocks of unchangeable data, going back in time_. Another way is: _a linked series of blocks to absolutely order data that could be conflicting_.
+## La Blockchain fa al caso mio?
 
-## Is Blockchain Right for Me?
+Se vuoi effettuare transazioni in bitcoin, allora ovviamente Bitcoin è giusto per te. Tuttavia, il termine blockchain è in voga al giorno d'oggi e non è la bacchetta magica per risolvere ogni tipo di problema tecnico. Detto questo, ci sono molte situazioni specifiche in cui la blockchain è una spanna sopra le tecnologie concorrenti.
 
-If you want to transact bitcoins, then obviously Bitcoin is right for you. However, more widely, blockchain has become a popular buzz-word even though it's not a magic bullet for all technical problems. With that said, there are many specific situations where blockchain is a superior technology.
+Le blockchain _saranno_ probabilmente utili se:
 
-Blockchains probably _will_ be helpful if:
+  * Gli utenti non si fidano l'uno dell'altro.
+    * Oppure: Gli utenti sono presenti in diversi paesi.
+  * Gli utenti non si fidano delle autorità centrali.
+    * E: Gli utenti vogliono controllare il proprio futuro.
+  * Gli utenti vogliono una tecnologia trasparente.
+  * Gli utenti vogliono condividere qualcosa.
+    * E: Gli utenti desiderano che ciò che viene condiviso sia registrato in modo permanente.
+  * Gli utenti vogliono una transazione rapida e definitiva.
+    * Ma: Gli utenti non hanno bisogno di una transazione immediata e definitiva.
 
-  * Users don't trust each other.
-    * Or: Users exist across various borders.
-  * Users don't trust central authorities.
-    * And: Users want to control their own destinies.
-  * Users want transparent technology.
-  * Users want to share something.
-    * And: Users want what's shared to be permanently recorded.
-  * Users want fast transaction finality.
-    * But: Users don't need instant transaction finality.
+Le blockchain _non saranno_ probabilmente utili se:
 
-Blockchains probably _will not_ be helpful if:
+  * Gli utenti sono fidati:
+    * es.: le transazioni avvengono all'interno di un'azienda o organizzazione.
+    * es.: le transazioni sono controllate da un'autorità centrale.
+  * La segretezza è necessaria:
+    * es.: Le informazioni devono essere segrete.
+    * es.: Le transazioni devono essere segrete.
+    * es.: Gli utilizzatori devono essere segreti.
+    * A meno che: Una metodologia per la segretezza crittografica è attentamente considerata, analizzata e testata.
+  * Gli utenti hanno bisogno di una transazione immediata e definitiva.
+    * es.: in meno di 10 minuti su una rete simile a Bitcoin, in meno di 2,5 minuti su una rete simile a Litecoin, in meno di 15 secondi su una rete simile a Ethereum
 
-  * Users are trusted:
-    * e.g.: transactions occur within a business or organization.
-    * e.g.: transactions are overseen by a central authority.
-  * Secrecy is required:
-    * e.g.: Information should be secret.
-    * e.g.: Transactions should be secret.
-    * e.g.: Transactors should be secret.
-    * Unless: A methodology for cryptographic secrecy is carefully considered, analyzed, and tested.
-  * Users need instant transaction finality.
-    * e.g.: in less than 10 minutes on a Bitcoin-like network, in less than 2.5 minutes on a Litecoin-like network, in less than 15 seconds on an Ethereum-like network
+Si noti che per alcune di queste situazioni possono ancora esistere soluzioni all'interno dell'ecosistema Bitcoin. Ad esempio, i canali di pagamento stanno rapidamente affrontando le questioni della liquidità e della definitività del pagamento.
 
-Do note that there may still be solutions for some of these situations within the Bitcoin ecosystem. For example, payment channels are rapidly addressing questions of liquidity and payment finality.
+## Lightning
 
-## About Lightning
+Lightning è un layer-2 (protocollo di secondo livello) che interagisce con Bitcoin per consentire agli utenti di scambiare i propri bitcoin "off-chain" (esternamente alla blockchain principale). Rispetto l'utilizzo diretto di Bitcoin presenta sia vantaggi che svantaggi.
 
-Lightning is a layer-2 protocol that interacts with Bitcoin to allow users to exchange their bitcoins "off-chain". It has both advantages and disadvantages over using Bitcoin on its own.
+Lightning è anche l'argomento secondario di questo tutorial. Sebbene si occupi principalmente di interagire direttamente con Bitcoin (e con `bitcoind`), dedica una certa attenzione a Lightning perché è una tecnologia emergente che probabilmente diventerà un'alternativa diffusa a Bitcoin. Questo libro adotta lo stesso approccio a Lightning e a Bitcoin: insegna come interagire direttamente con un deamon Lightning affidabile dalla riga di comando.
 
 Lightning is also the secondary focus of this tutorial. Though it's mostly about interacting directly with Bitcoin (and the `bitcoind`), it pays some attention to Lightning because it's an upcoming technology that is likely to become a popular alternative to Bitcoin in the near future. This book takes the same approach to Lightning as to Bitcoin: it teaches how to interact directly with a trusted Lightning daemon from the command line.
 
