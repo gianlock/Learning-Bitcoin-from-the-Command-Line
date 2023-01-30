@@ -208,7 +208,7 @@ Sebbene l'immagine Debian 11 predefinita che stiamo utilizzando per il tuo VPS s
 
 L'installazione del VPS Bitcoin è minima e non consente quasi nessuna comunicazione. Ciò avviene attraverso un semplice firewall (`ufw`), che blocca tutto tranne le connessioni SSH. È inoltre possibile una sicurezza aggiuntiva per le porte RFC, grazie ai servizi nascosti installati da Tor.
 
-**Modificare UFW.**Probabilmente dovresti lasciare UFW nella sua fase super-protetta! Non è consigliabile utilizzare una macchina Bitcoin per altri servizi, perché tutti aumentano la vostra vulnerabilità! Se decidete diversamente, ci sono diverse [guide a UFW](https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands) che vi permetterà di aggiungere servizi. Come annunciato, è semplice. Per esempio, per aggiungere i servizi di posta è sufficiente aprire la porta della posta: `sudo ufw allow 25`. Ma non fatelo.
+**Modificare UFW.** Probabilmente dovresti lasciare UFW nella sua fase super-protetta! Non è consigliabile utilizzare una macchina Bitcoin per altri servizi, perché tutti aumentano la vostra vulnerabilità! Se decidete diversamente, ci sono diverse [guide a UFW](https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands) che vi permetterà di aggiungere servizi. Come annunciato, è semplice. Per esempio, per aggiungere i servizi di posta è sufficiente aprire la porta della posta: `sudo ufw allow 25`. Ma non fatelo.
 
 **Modificare Tor.** Potresti decidere di proteggere meglio servizi come SSH. Leggi il [Capitolo 14: Usare Tor](14_0_Usare_Tor.md) per più informazioni su Tor.
 
