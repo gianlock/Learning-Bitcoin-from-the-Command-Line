@@ -1,19 +1,19 @@
-# 2.2: Setting Up a Bitcoin-Core Machine via Other Means
+# 2.2: Configurazione di una Macchina Bitcoin-Core Tramite Altri Metodi
 
-The previous section, [§2.1: Setting Up a Bitcoin-Core VPS with Bitcoin Standup](02_1_Setting_Up_a_Bitcoin-Core_VPS_with_StackScript.md), presumed that you would be creating a full node on a VPS using a Linode Stackscript. However, you can actually create a Bitcoin-Core instance via any methodology of your choice and still follow along with the later steps of this tutorial.
+La sezione precedente, [§2.1: Configurazione di un VPS Bitcoin-Core con Bitcoin Standup](02_1_Configurazione_di_un_VPS_Bitcoin-Core_con_StackScript.md), prevedeva la creazione di un _full node_ su un VPS utilizzando uno Stackscript di Linode. Tuttavia, è possibile creare un'istanza di Bitcoin-Core con la metodologia che si preferisce e seguendo i passaggi successivi di questo tutorial.
 
-Following are other setup methodologies that we are aware of:
+Di seguito sono riportate altre metodologie di configurazione di cui siamo a conoscenza:
 
-* *[Compiling from Source](A2_0_Compiling_Bitcoin_from_Source.md).* If you prefer to compile Bitcoin Core by hand, that's covered in Appendix 2.
-* *[Using GordianServer-macOS](https://github.com/BlockchainCommons/GordianServer-macOS).* If you have a modern Mac, you can use Blockchain Commons' *GordianNode* app, powered by *BitcoinStandup*, to install a full node on your Mac.
-* *[Using Other Bitcoin Standup Scripts](https://github.com/BlockchainCommons/Bitcoin-Standup-Scripts).* Blockchain Commons also offers a version of the Linode script that you used that can be run from the command line on any Debian or Ubuntu machine. This tends to be the leading-edge script, which means that it's more likely to feature new functions, like Lightning installation.
-* *[Setting Up a Bitcoin Node on AWS](https://wolfmcnally.com/115/developer-notes-setting-up-a-bitcoin-node-on-aws/).* @wolfmcnally has written a step-by-step tutorial for setting up Bitcoin-Core with Amazon Web Services (AWS).
-* *[Setting Up a Bitcoin Node on a Raspberry Pi 3](https://medium.com/@meeDamian/bitcoin-full-node-on-rbp3-revised-88bb7c8ef1d1).* Damian Mee explains how to set up a headless full node on a Raspberry Pi 3.
+* *[Compilazione dalla Sorgente](A2_0_Compilazione_Bitcoin_dalla_Sorgente.md).* Se preferisci compilare Bitcoin Core a mano, l'argomento è trattato nell'Appendice 2.
+* *[Utilizzare GordianServer-macOS](https://github.com/BlockchainCommons/GordianServer-macOS).* Se avete un Mac moderno, potete usare l'applicazione *GordianNode* di Blockchain Commons, alimentata da *BitcoinStandup*, per installare un _full node_ sul vostro Mac.
+* *[Utilizzare altri script Bitcoin Standup](https://github.com/BlockchainCommons/Bitcoin-Standup-Scripts).* Blockchain Commons offre anche una versione dello script Linode utilizzato che può essere eseguita dalla riga di comando su qualsiasi macchina Debian o Ubuntu. Questo può essere considerato lo script di punta, il che significa che è più probabile che presenti nuove funzioni, come l'installazione di Lightning.
+* *[Configurare un nodo Bitcoin su AWS](https://wolfmcnally.com/115/developer-notes-setting-up-a-bitcoin-node-on-aws/).* @wolfmcnally ha scritto un tutorial completo per configurare Bitcoin-Core con Amazon Web Services (AWS).
+* *[Configurare un nodo Bitcoin su un Raspberry Pi 3](https://medium.com/@meeDamian/bitcoin-full-node-on-rbp3-revised-88bb7c8ef1d1).* Damian Mee spiega come configurare un _headless full node_ su un Raspberry Pi 3.
 
-Be sure that you are installing on a current version of your OS, to avoid problems down the line. As of this writing, this course is tested on Debian 11.
+Assicurati di installare su una versione aggiornata del vostro sistema operativo, per evitare problemi durante il processo di installazione. Al momento della stesura di questo documento, il corso è stato testato su Debian 11.
 
-## What's Next?
+## Cosa c'è Dopo?
 
-Unless you want to return to one of the other methodologies for creating a Bitcoin-Core node, you should:
+A meno che non si voglia tornare a una delle altre metodologie per la creazione di un nodo Bitcoin-Core:
 
-   * Move on to "bitcoin-cli" with [Chapter Three: Understanding Your Bitcoin Setup](03_0_Understanding_Your_Bitcoin_Setup.md).
+   * Passa a "bitcoin-cli" con il [Capitolo Tre: Capire la Tua Configurazione Bitcoin](03_0_Capire_la_Tua_Configurazione_Bitcoin.md).
