@@ -121,21 +121,21 @@ Si noti che per alcune di queste situazioni possono ancora esistere soluzioni al
 
 Lightning è un layer-2 (protocollo di secondo livello) che interagisce con Bitcoin per consentire agli utenti di scambiare i propri bitcoin "off-chain" (esternamente alla blockchain principale). Rispetto l'utilizzo diretto di Bitcoin presenta sia vantaggi che svantaggi.
 
-Lightning è anche l'argomento secondario di questo tutorial. Sebbene si occupi principalmente di interagire direttamente con Bitcoin (e con `bitcoind`), dedica una certa attenzione a Lightning perché è una tecnologia emergente che probabilmente diventerà un'alternativa diffusa a Bitcoin. Questo libro adotta lo stesso approccio a Lightning e a Bitcoin: insegna come interagire direttamente con un deamon Lightning affidabile dalla riga di comando.
+Lightning è anche l'argomento secondario di questo tutorial. Sebbene si occupi principalmente di interagire direttamente con Bitcoin (e con `bitcoind`), dedica una certa attenzione a Lightning perché è una tecnologia emergente che probabilmente diventerà un'alternativa diffusa a Bitcoin. Questo libro adotta lo stesso approccio a Lightning e a Bitcoin: insegna come interagire direttamente con un deamon Lightning da riga di comando.
 
-Lightning is also the secondary focus of this tutorial. Though it's mostly about interacting directly with Bitcoin (and the `bitcoind`), it pays some attention to Lightning because it's an upcoming technology that is likely to become a popular alternative to Bitcoin in the near future. This book takes the same approach to Lightning as to Bitcoin: it teaches how to interact directly with a trusted Lightning daemon from the command line.
+A differenza di Bitcoin, esistono diverse varianti di Lightning. Questo tutorial utilizza l'implementazione [c-lightning](https://github.com/ElementsProject/lightning) come server Lightning attendibile.
 
-Unlike with Bitcoin, there are actually several variants of Lightning. This tutorial uses the standard-compliant [c-lightning](https://github.com/ElementsProject/lightning) implementation as its trusted Lightning server.
+**_Cos'è un protocollo di livello 2?_** Un protocollo layer-2 è un protocollo costruito sopra il protocollo principale o "blockchain madre". In questo caso, Lightning opera sopra Bitcoin, interagendo con esso tramite smart contracts.
 
-**_What is a Layer-2 Protocol?_** A layer-2 Bitcoin protocol works on top of Bitcoin. In this case, Lightning works atop Bitcoin, interacting with it through smart contracts.
+**_Cos'è un canale Lightning_** Un canale Lightning è una connessione tra due utenti Lightning. Ciascuno degli utenti blocca un certo numero di bitcoin sulla blockchain Bitcoin utilizzando un multi-sig firmato da entrambi. I due utenti possono quindi scambiare bitcoin attraverso il loro canale Lightning senza mai scrivere sulla blockchain principale. Solo quando vorranno chiudere il loro canale regoleranno i loro bitcoin in base alla divisione finale delle monete.
 
-**_What is a Lightning Channel?_** A Lightning Channel is a connection between two Lightning users. Each of the users locks up some number of bitcoins on the Bitcoin blockchain using a multi-sig signed by both of them. The two users can then exchange bitcoins through their Lightning channel without ever writing to the Bitcoin blockchain. Only when they want to close out their channel do they settle their bitcoins, based on the final division of coins.
+**_Cos'è una rete Lightning?_** L'intreccio di una serie di canali Lightning crea la rete Lightning. Ciò consente a due utenti senza un canale Lightining di scambiare tra loro bitcoin : il protocollo collega i due utenti creando una catena di canali e scambia le monete utilizzando transazioni bloccate nel tempo.
 
-**_What is a Lightning Network?_** Putting together a number of Lightning Channels creates the Lightning Network. This allows two users who have not created a channel between themselves to exchange bitcoins using Lightning: the protocol forms a chain of Channels between the two users, then exchanges the coins through the chain using time-locked transactions.
+**_Quali sono i vantaggi di Lightning?_** Lightning consente di effettuare transazioni più veloci con commissioni inferiori. Questo rende reale la possibilità di micropagamenti finanziati da bitcoin. In aggiunta Lightning, in quanto off-chain, offre anche una migliore privacy in quanto solo il primo e l'ultimo stato della transazione verranno riportati nel ledger Bitcoin (libro mastro immutabile di Bitcoin).
 
-**_What are the Advantages of Lightning?_** Lightning allows for faster transactions with lower fees. This creates the real possibility of bitcoin-funded micropayments. It also offers better privacy, since it's off-chain with only the first and last states of the transaction being written to the immutable Bitcoin ledger.
+**_Quali sono gli svantaggi di Lightning?_** Lightning è ancora una tecnologia molto nuova e non testata a fondo come Bitcoin. Oltre il fattore di implementazione tecnologica, ma anche se il design stesso può essere giocato in modi inaspettati.
 
-**_What are the Disadvantages of Lightning?_** Lightning is still a very new technology and hasn't been tested as thoroughly as Bitcoin. That's not just a question of the technological implementation, but also whether the design itself can be gamed in any unexpected ways.
+Lightning is still a very new technology and hasn't been tested as thoroughly as Bitcoin. That's not just a question of the technological implementation, but also whether the design itself can be gamed in any unexpected ways.
 
 ### Lightning - In Short
 
