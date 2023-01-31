@@ -131,20 +131,18 @@ A differenza di Bitcoin, esistono diverse varianti di Lightning. Questo tutorial
 
 **_Cos'è una rete Lightning?_** L'intreccio di una serie di canali Lightning crea la rete Lightning. Ciò consente a due utenti senza un canale Lightining di scambiare tra loro bitcoin : il protocollo collega i due utenti creando una catena di canali e scambia le monete utilizzando transazioni bloccate nel tempo.
 
-**_Quali sono i vantaggi di Lightning?_** Lightning consente di effettuare transazioni più veloci con commissioni inferiori. Questo rende reale la possibilità di micropagamenti finanziati da bitcoin. In aggiunta Lightning, in quanto off-chain, offre anche una migliore privacy in quanto solo il primo e l'ultimo stato della transazione verranno riportati nel ledger Bitcoin (libro mastro immutabile di Bitcoin).
+**_Quali sono i vantaggi di Lightning?_** Lightning consente di effettuare transazioni più veloci con commissioni inferiori. Questo rende reale la possibilità di micropagamenti finanziati da bitcoin. In aggiunta Lightning, in quanto off-chain, offre una migliore privacy in quanto solo il primo e l'ultimo stato della transazione verranno riportati nel ledger Bitcoin (libro mastro immutabile di Bitcoin).
 
-**_Quali sono gli svantaggi di Lightning?_** Lightning è ancora una tecnologia molto nuova e non testata a fondo come Bitcoin. Oltre il fattore di implementazione tecnologica, ma anche se il design stesso può essere giocato in modi inaspettati.
+**_Quali sono gli svantaggi di Lightning?_** Lightning è ancora una tecnologia molto nuova e non testata a fondo come Bitcoin. Non si tratta solo di una questione di implementazione tecnologica, ma anche di capire se il protocollo stesso può essere sfruttato in modo inaspettato.
 
-Lightning is still a very new technology and hasn't been tested as thoroughly as Bitcoin. That's not just a question of the technological implementation, but also whether the design itself can be gamed in any unexpected ways.
+### Lightning - In Breve
 
-### Lightning - In Short
+Possiamo pensare a Lightning come: _un modo per trasferire bitcoin utilizzando canali off-chain tra coppie di persone, in modo che solo un primo e un ultimo stato debbano essere scritti sulla blockchain_.
 
-One way to think of Lightning is: _a way to transact bitcoins using off-chain channels between pairs of people, so that only a first and final state have to be written to the blockchain_.
+## Sommario: Presentazione di Bitcoin
 
-## Summary: Introducing Bitcoin
+Bitcoin è un sistema peer-to-peer che consente il trasferimento di fondi attraverso transazioni bloccate da puzzle crittografici. Questi enigmi dipendono dalla crittografia a curva ellittica a chiave pubblica. Generalizzando le idee alla base del Bitcoin, si ottiene la blockchain, una tecnologia in continua crescita e innovazione. Quando si espandono le idee alla base di Bitcoin, si ottengono protocolli di livello 2 come Lightning, che ampliano il potenziale della valuta.
 
-Bitcoin is a peer-to-peer system that allows for the transfer of funds through transactions that are locked with puzzles. These puzzles are dependent upon public-key elliptic-curve cryptography. When you generalize the ideas behind Bitcoin, you get blockchains, a technology that's currently growing and innovating. When you expand the ideas behind Bitcoin, you get layer-2 protocols such as Lightning, which expand the currency's potential.
+## Cosa c'è dopo?
 
-## What's Next?
-
-Advance through "Preparing for Bitcoin" with [Chapter Two: Setting Up a Bitcoin-Core VPS](02_0_Setting_Up_a_Bitcoin-Core_VPS.md).
+Avanza verso "Prepararsi a Bitcoin" con [Capitolo 2: Configurazione di un Bitcoin-Core VPS](02_0_Configurazione_di_un_Bitcoin-Core_VPS.md).
