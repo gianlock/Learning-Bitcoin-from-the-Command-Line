@@ -66,10 +66,9 @@ Blockchain Commons sta attualmente ampliando i suoi script di standup per Bitcoi
 
 Dovrai ora scegliere un piano Linode.
 
+Linode sceglierà di default i piani Dedicated-CPU, ma è possibile selezionare il più economico Shared-CPU. Un Linode con Shared-CPU di 4GB di RAM sarà sufficiente per la maggior parte dei setup, incluso: _Pruned Mainnet_, _Pruned Testnet_, ed anche _non-Pruned Testnet_. Queste configurazioni usano meno di 50GB di memoria e 4GB di RAM sono una quantità adeguata. Questa è la configurazione che suggeriamo. Il costo è di $20/mese.
 
-Linode sceglierà di default i piani Dedicated-CPU, ma è possibile selezionare il più economico Shared-CPU. Un Linode con Shared-CPU di 4GB sarà sufficiente per la maggior parte dei setup, incluso: _Pruned Mainnet_, _Pruned Testnet_, ed anche _non-Pruned Testnet_. Queste configurazioni usano meno di 50GB di memoria e 4GB di  They all use less than 50G of storage and 4GB di RAM sono una quantità adeguata.
-
-Se invece vuoi avere una _non-Pruned Mainnet_ nel tuo VPS, è necessario installare un Linode con un disco superiore a 500G(!), che attualmente è il Linode 32GB, che ha 640GB di spazio di archiviazione e 32GB di RAM e costa circa $160 al mese. Noi *non* consigliamo questa soluzione.
+Se invece vuoi avere una _non-Pruned Mainnet_ nel tuo VPS, è necessario installare un Linode con un disco superiore a 500G(!), che attualmente è il Linode 32GB, che ha 640GB di spazio di archiviazione e 32GB di RAM e costa circa $160 al mese. Noi _non_ consigliamo questa soluzione.
 
 La tabella seguente mostra i requisiti minimi:
 
@@ -133,7 +132,6 @@ Saprai che lo stackscrpit è stato completato quando la `tail` di `standup.log` 
 /root/StackScript - You can manually stop Bitcoin with: sudo systemctl stop bitcoind.service
 /root/StackScript - You can manually start Bitcoin with: sudo systemctl start bitcoind.service
 ```
-
 A questo punto, la vostra home directory dovrebbe avere questo aspetto:
 
 ```
@@ -161,11 +159,9 @@ Se vedi qualcosa di simile a quanto segue, dovrebbe essere tutto a posto:
 ./standup.sh - SIG VERIFICATION SUCCESS: 9 GOOD SIGNATURES FOUND.
 ./standup.sh - SHA VERIFICATION SUCCESS / SHA: bitcoin-22.0-x86_64-linux-gnu.tar.gz: OK
 ```
-
 Se uno di questi due controlli riporta invece "ERRORE DI VERIFICA", allora c'è un problema.
 
 Il log contiene anche ulteriori informazioni sulle firme, se si vuole essere sicuri di sapere *chi* ha firmato la release di Bitcoin:
-
 ```
 $ sudo grep -i good /standup.log
 ./standup.sh - SIG VERIFICATION SUCCESS: 9 GOOD SIGNATURES FOUND.
@@ -179,7 +175,6 @@ gpg: Good signature from "Hennadii Stepanov (hebasto) <hebasto@gmail.com>" [unkn
 gpg: Good signature from "Jon Atack <jon@atack.com>" [unknown]
 gpg: Good signature from "Wladimir J. van der Laan <laanwj@visucore.com>" [unknown]
 ```
-
 Dal momento che è tutto programmato, è possibile che ci sia stata una piccola modifica che ha fatto sì che i controlli dello script non funzionassero correttamente. (Questo è successo alcune volte nel corso del tempo in cui è stato creato lo script che è diventato Standup). Ma è anche possibile che qualcuno stia cercando di incoraggiarvi a eseguire una copia falsa del demone Bitcoin. Quindi, *sii sicuro di sapere cosa è successo prima di usare Bitcoin!*
 
 ### Leggere i Log
@@ -232,19 +227,17 @@ Se per qualche motivo volessi cambiare questa impostazione (*non lo suggeriamo*)
 echo "unattended-upgrades unattended-upgrades/enable_auto_updates boolean false" | debconf-set-selections
 ```
 
-*Per saperne di più su ciò che fa lo stackscript Bitcoin Standup, leggi [Appendice I: Capire Bitcoin Standup](A1_0_Capire_Bitcoin_Standup.md).*
+_Per saperne di più su ciò che fa lo stackscript Bitcoin Standup, leggi [Appendice I: Capire Bitcoin Standup](A1_0_Capire_Bitcoin_Standup.md)._
 
 ## Giocare con Bitcoin
 
 Quindi ora probabilmente vuoi giocare con Bitcoin!
 
 Ma aspetta, il tuo demone Bitcoin probabilmente sta ancora scaricando i blocchi. Il comando `bitcoin-cli getblockcount` vi dirà l'avanzamento attuale:
-
 ```
 $ bitcoin-cli getblockcount
 1771352
 ```
-
 Se è diverso ogni volta che si digita il comando, è necessario attendere prima di utilizzare Bitcoin. Attualmente sono necessarie da 1 a 6 ore per una configurazione  _pruned_, a seconda della vostra macchina.
 
 Ma una volta che il numero si è stabilizzato, sei pronto a continuare!
