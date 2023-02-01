@@ -1,12 +1,12 @@
 # Capitolo Due: Creazione di un VPS Bitcoin-Core
 
-Per iniziare a usare Bitcoin, è necessario prima di tutto configurare una macchina che esegua Bitcoin. Gli articoli in questo capitolo descrivono come fare, principalmente utilizzando un VPS (Serve Privato Virtuale).
+Per iniziare a usare Bitcoin, è necessario prima di tutto configurare una macchina che esegua Bitcoin. Gli articoli in questo capitolo descrivono come fare, principalmente utilizzando un VPS (Server Privato Virtuale).
 
 ## Obiettivi di questo capitolo
 
 Dopo aver affrontato questo capitolo, uno sviluppatore sarà in grado di:
 
-* Dicirete tra i cinque principali tipi di nodi Bitcoin
+* Dicidere tra i cinque principali tipi di nodi Bitcoin
 * Creare un nodo Bitcoin per lo sviluppo
 * Creare un'istanza locale della Blockchain di Bitcoin
 
