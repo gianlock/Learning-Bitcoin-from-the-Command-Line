@@ -126,7 +126,6 @@ Se si è impazienti, si può andare avanti con `sudo tail -f /standup.log` che m
 ## Verifica la Tua Installazione
 
 Saprai che lo stackscrpit è stato completato quando la `tail` di `standup.log` dirà qualcosa di simile a quanto segue:
-
 ```
 /root/StackScript - Bitcoin is setup as a service and will automatically start if your VPS reboots and so is Tor
 /root/StackScript - You can manually stop Bitcoin with: sudo systemctl stop bitcoind.service
