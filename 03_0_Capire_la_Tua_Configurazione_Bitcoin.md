@@ -1,31 +1,31 @@
-# Chapter Three: Understanding Your Bitcoin Setup
+# Capitolo Tre: Capire la Tua Configurazione Bitcoin
 
-You're now ready to begin working with the `bitcoin-cli` command-line interface. But that first requires that you understand your Bitcoin setup and its wallet features, which is what will be explained in this chapter.
+Ora sei pronto per iniziare a lavorare con l'interfaccia da riga di comando `bitcoin-cli`. Ma questo richiede prima di tutto di comprendere la propria configurazione di Bitcoin e le caratteristiche del suo portafoglio, cosa che verrà spiegata in questo capitolo.
 
-For this and future chapters, we presume that you have a VPS with Bitcoin installed, running `bitcoind`. We also presume that you are connected to testnet, allowing for access to bitcoins without using real funds. You can either do this with Bitcoin Standup at Linode.com, per [§2.1: Setting up a Bitcoin-Core VPS with Bitcoin Standup](02_1_Setting_Up_a_Bitcoin-Core_VPS_with_StackScript.md), or via other means, per [§2.2: Setting up a Bitcoin-Core Machine via Other Means](02_2_Setting_Up_Bitcoin_Core_Other.md).
+Per questo e per i prossimi capitoli, si assume che si abbia un VPS con Bitcoin installato, che esegue `bitcoind`. Si presume anche che si sia connessi alla _testnet_, che consente l'accesso ai bitcoin senza utilizzare fondi reali. È possibile farlo con Bitcoin Standup su Linode.com, come indicato in [§2.1: Configurazione di un VPS Bitcoin-Core con Bitcoin Standup](02_1_Configurazione_di_un_VPS_Bitcoin-Core_con_StackScript.md), o con altri metodi, come indicato in [§2.2: Configurazione di una Macchina Bitcoin-Core Tramite Altri Metodi](02_2_Configurazione_di_un_Bitcoin-Core_Altro.md)
 
-## Objectives for This Chapter
+## Obiettivi di Questo Capitolo
 
-After working through this chapter, a developer will be able to:
+Dopo aver letto questo capitolo, uno sviluppatore sarà in grado di:
 
-   * Demonstrate that Their Bitcoin Node is Installed and Up-to-date
-   * Create an Address to Receive Bitcoin Funds
-   * Use Basic Wallet Commands
-   * Create an Address from a Descriptor
+   * Dimostrare che il proprio nodo Bitcoin sia installato e aggiornato
+   * Creare un indirizzo per ricevere bitcoin
+   * Usare i comandi di base del _wallet_
+   * Creare un indirizzo da un descrittore
    
-Supporting objectives include the ability to:
+Gli obiettivi di supporto includono la capacità di:
 
-   * Understand the Basic Bitcoin File Layout
-   * Use Basic Informational Commands
-   * Understand What a Bitcoin Address Is
-   * Understand What a Wallet Is
-   * Understand How to Import Addresses
+   * Capire il layout di base dei file Bitcoin
+   * Utilizzare i comandi informativi di base
+   * Capire cos'è un indirizzo Bitcoin
+   * Capire cos'è un _wallet_
+   * Capire come importare degli indirizzi
    
-## Table of Contents
+## Tavola dei Contenuti
 
-* [Section One: Verifying Your Bitcoin Setup](03_1_Verifying_Your_Bitcoin_Setup.md)
-* [Section Two: Knowing Your Bitcoin Setup](03_2_Knowing_Your_Bitcoin_Setup.md)
-* [Section Three: Setting Up Your Wallet](03_3_Setting_Up_Your_Wallet.md)
-   * [Interlude: Using Command-Line Variables](03_3__Interlude_Using_Command-Line_Variables.md)
-* [Section Four: Receiving a Transaction](03_4_Receiving_a_Transaction.md)
-* [Section Five: Understanding the Descriptor](03_5_Understanding_the_Descriptor.md)
+* [Sezione Uno: Verificare la Tua Configurazione Bitcoin](03_1_Verificare_la_Tua_Configurazione_Bitcoin.md)
+* [Sezione Due: Conoscere la Tua Configurazione Bitcoin](03_2_Conoscere_la_Tua_Configurazione_Bitcoin.md)
+* [Sezione Tre: Configurare il Tuo Wallet](03_3_Configurare_il_Tuo_Wallet.md)
+   * [Intermezzo: Utilizzare Variabili della Linea di Comando](03_3__Intermezzo_Utilizzare_Variabili_Linea_di_Comando.md)
+* [Sezione Quattro: Ricevere Una Transazione](03_4_Ricevere_una_Transazione.md)
+* [Sezione Cinque: Capire il Descrittore](03_5_Capire_il_Descrittore.md)
