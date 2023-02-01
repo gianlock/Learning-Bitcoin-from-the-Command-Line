@@ -1,12 +1,12 @@
-# 3.1: Verifying Your Bitcoin Setup
+# 3.1: Verificare la Tua Configurazione Bitcoin
 
-Before you start playing with Bitcoin, you should ensure that everything is setup correctly.
+Prima di iniziare a sperimentare con Bitcoin, è necessario verificare che tutto sia configurato correttamente.
 
-## Create Your Aliases
+## Crea i tuoi alias
 
-We suggest creating some aliases to make it easier to use Bitcoin.
+Suggeriamo di creare alcuni alias per facilitare l'utilizzo di Bitcoin.
 
-You can do so by putting them in your `.bash_profile`, `.bashrc` or `.profile`.
+Lo puoi fare inserendoli nel tuo `.bash_profile`, `.bashrc` o `.profile`.
 ```
 cat >> ~/.bash_profile <<EOF
 alias btcdir="cd ~/.bitcoin/" #linux default bitcoind path
@@ -15,35 +15,35 @@ alias bd="bitcoind"
 alias btcinfo='bitcoin-cli getwalletinfo | egrep "\"balance\""; bitcoin-cli getnetworkinfo | egrep "\"version\"|connections"; bitcoin-cli getmininginfo | egrep "\"blocks\"|errors"'
 EOF
 ```
-After you enter these aliases you can either `source .bash_profile` to input them or just log out and back in.
+Dopo aver inserito questi alias, è possibile eseguire `source .bash_profile` per aggiungerli o semplicemente uscire e rientrare.
 
-Note that these aliases includes shortcuts for running `bitcoin-cli`, for running `bitcoind`, and for going to the Bitcoin directory. These aliases are mainly meant to make your life easier. We suggest you create other aliases to ease your use of frequent commands (and arguments) and to minimize errors. Aliases of this sort can be even more useful if you have a complex setup where you regularly run commands associated with Mainnet, with Testnet, _and_ with Regtest, as explained further below.
+Nota che questi alias includono scorciatoie per l'esecuzione di `bitcoin-cli`, per l'esecuzione di `bitcoind` e per accedere alla directory di Bitcoin. Questi alias hanno come scopo principale quello di semplificare la vita dell'utente. Ti consigliamo di creare altri alias per facilitare l'uso di comandi (e argomenti) frequenti e per ridurre al minimo gli errori. Gli alias di questo tipo possono essere ancora più utili se si ha una configurazione complessa in cui si eseguono regolarmente comandi associati alla Mainnet, alla Testnet, _e_ alla Regtest, come spiegheremo più avanti.
 
-With that said, use of these aliases in _this_ document might accidentally obscure the core lessons being taught about Bitcoin, so the only alias directly used here is `btcinfo` because it encapsulates  much longer and more complex command. Otherwise, we show the full commands; adjust for your own use as appropriate.
+Detto questo, l'uso di questi alias in _questo_ documento potrebbe accidentalmente sviare dalle dalle informazioni centrali su Bitcoin, quindi l'unico alias usato direttamente qui è `btcinfo` perché racchiude comandi molto più lunghi e complessi. Per il resto, mostreremo i comandi completi; adattateli all'uso che ne farete.
 
-## Run Bitcoind
+## Eseguire Bitcoind
 
-You'll begin your exploration of the Bitcoin network with the `bitcoin-cli` command. However, bitcoind _must_ be running to use bitcoin-cli, as bitcoin-cli sends JSON-RPC commands to the bitcoind. If you used our standard setup, bitcoind should already be up and running. You can double check by looking at the process table.
+Inizierai la tua esplorazione della rete Bitcoin con il comando `bitcoin-cli`. Tuttavia, bitcoind deve essere in funzione per utilizzare bitcoin-cli, poiché bitcoin-cli invia comandi JSON-RPC a bitcoind. Se si utilizza la nostra configurazione standard, bitcoind dovrebbe essere già attivo e funzionante. Si può verificare guardando la lista dei processi.
 ```
 $ ps auxww | grep bitcoind
 standup    455  1.3 34.4 3387536 1392904 ?     SLsl Jun16  59:30 /usr/local/bin/bitcoind -conf=/home/standup/.bitcoin/bitcoin.conf
 ```
-If it's not running, you'll want to run `/usr/local/bin/bitcoind -daemon` by hand and also place it in your crontab.
+Se non è in esecuzione, occorre eseguire `/usr/local/bin/bitcoind -daemon` a mano e inserirlo nel crontab.
 
-## Verify Your Blocks
+## Verifica i tuoi blocchi
 
-You should have the whole blockchain downloaded before you start playing. Just run the `bitcoin-cli getblockcount` alias to see if it's all loaded. 
+Dovresti aver scaricato l'intera blockchain prima di iniziare a smanettare. Basta eseguire l'alias `bitcoin-cli getblockcount` per vedere se è stata scaricata tutta. 
 ```
 $ bitcoin-cli getblockcount
 1772384
 ```
-That tells you what's loaded; you'll then need to check that against an online service that tells you the current block height.
+Questo ti dice cosa è stato scaricato; dovrai quindi verificarlo con un servizio online che ti indichi l'altezza attuale del blocco.
 
-> :book: ***What is Block Height?*** Block height is the the distance that a particular block is removed from the genesis block. The current block height is the block height of the newest block added to a blockchain.
+> :book: ***Cos'è l'altezza del blocco?*** L'altezza del blocco è la distanza che separa un determinato blocco dal blocco di genesi. L'altezza del blocco attuale è l'altezza del blocco più recente aggiunto alla blockchain.
 
-You can do this by looking at a blocknet explorer, such as [the Blockcypher Testnet explorer](https://live.blockcypher.com/btc-testnet/). Does its most recent number match your `getblockcount`? If so, you're up to date.
+È possibile farlo osservando un blocknet explorer, come [il Blockcypher Testnet explorer](https://live.blockcypher.com/btc-testnet/). Il numero più recente corrisponde al tuo `getblockcount`? Se sì, sei aggiornato.
 
-If you'd like an alias to look at everything at once, the following currently works for Testnet, but may disappear at some time in the future:
+Se desideri un alias per guardare tutto in una volta, il seguente funziona attualmente per Testnet, ma potrebbe anche cambiare in futuro:
 ```
 $ echo "alias btcblock='echo \$(bitcoin-cli -testnet getblockcount)/\$(curl -s https://blockstream.info/testnet/api/blocks/tip/height)'" >> .bash_profile
 $ source .bash_profile 
@@ -51,25 +51,25 @@ $ btcblock
 1804372/1804372
 ```
 
-> :link: **TESTNET vs MAINNET:** Remember that this tutorial generally assumes that you are using testnet. If you're using the mainnet instead, you can retrieve the current block height with: `curl -s https://blockchain.info/q/getblockcount`. You can replace the latter half of the `btcblock` alias (after `/\$(`) with that.
+> :link: **TESTNET vs MAINNET:** Ricordati che questa esercitazione presuppone in generale che si stia utilizzando la testnet. Se invece si utilizza la mainnet, è possibile recuperare l'altezza del blocco corrente con: `curl -s https://blockchain.info/q/getblockcount`. È possibile sostituire l'ultima metà dell'alias `btcblock` (dopo `/\$(`)) con questo link.
 
-If you're not up-to-date, but your `getblockcount` is increasing, no problem. Total download time can take from an hour to several hours, depending on your setup.
+Se non si è aggiornati, ma il proprio `getblockcount` sta aumentando, non c'è problema. Il tempo totale di download può richiedere da un'ora a diverse ore, a seconda della vostra configurazione.
 
-## Optional: Know Your Server Types
+## Opzionale: Conoscere i tipi di server
 
-> **TESTNET vs MAINNET:** When you set up your node, you choose to create it as either a Mainnet, Testnet, or Regtest node. Though this document presumes a testnet setup, it's worth understanding how you might access and use the other setup types — even all on the same machine! But, if you're a first-time user, skip on past this, as it's not necessary for a basic setup.
+> **TESTNET vs MAINNET:** Quando si configura il nodo, si sceglie di crearlo come nodo Mainnet, Testnet o Regtest. Sebbene questo documento presuma una configurazione testnet, vale la pena di capire come si può accedere e utilizzare gli altri tipi di configurazione, anche sulla stessa macchina! Tuttavia, se si è alle prime armi, si può passare oltre, perché non è necessario per una configurazione di base.
 
-The type of setup is mainly controlled through the ~/.bitcoin/bitcoin.conf file. If you're running testnet, it probably contains this line:
+Il tipo di configurazione è controllato principalmente attraverso il file ~/.bitcoin/bitcoin.conf. Se si sta eseguendo in testnet, probabilmente contiene questa riga:
 ```
 testnet=1
 ```
-If you're running regtest, it probably contains this line:
+Se si sta eseguendo in regtest, probabilmente contiene questa riga:
 ```
 regtest=1
 ```
-However, if you want to run several different sorts of nodes simultaneously, you should leave the testnet (or regtest) flag out of your configuration file. You can then choose whether you're using the mainnet, the testnet, or your regtest every time you run bitcoind or bitcoin-cli.
+Tuttavia, se si desideri eseguire diversi tipi di nodi contemporaneamente, è necessario omettere il flag testnet (o regtest) dal file di configurazione. Ogni volta che si esegue bitcoind o bitcoin-cli si può scegliere se utilizzare la mainnet, la testnet o la regtest.
 
-Here's a set of aliases that would make that easier by creating a specific alias for starting and stopping the bitcoind, for going to the bitcoin directory, and for running bitcoin-cli, for each of the mainnet (which has no extra flags), the testnet (which is -testnet), or your regtest (which is -regtest).
+Ecco un insieme di alias che semplificherebbe il tutto, creando un alias specifico per avviare e arrestare bitcoind, per accedere alla directory bitcoin e per eseguire bitcoin-cli, per la mainnet (che non ha flag aggiuntivi), la testnet (che è -testnet) o la regtest (che è -regtest).
 ```
 cat >> ~/.bash_profile <<EOF
 alias bcstart="bitcoind -daemon"
@@ -89,12 +89,12 @@ alias bt="bitcoin-cli -testnet"
 alias br="bitcoin-cli -regtest"
 EOF
 ```
-For even more complexity, you could have each of your 'start' aliases use the -conf flag to load configuration from a different file. This goes far beyond the scope of this tutorial, but we offer it as a starting point for when your explorations of Bitcoin reaches the next level.
+Per una complessità ancora maggiore, si potrebbe fare in modo che ciascuno dei propri alias "start" utilizzi il flag -conf per caricare la configurazione da un file diverso. Questo va ben oltre lo scopo di questo tutorial, ma lo proponiamo come punto di partenza per quando le vostre sperimentazioni su Bitcoin raggiungeranno il livello successivo.
 
-## Summary: Verifying Your Bitcoin Setup
+## Riepilogo: Verificare la Tua Configurazione Bitcoin
 
-Before you start playing with bitcoin, you should make sure that your aliases are set up, your bitcoind is running, and your blocks are downloaded. You may also want to set up some access to alternative Bitcoin setups, if you're an advanced user.
+Prima di iniziare a sperimentare con bitcoin, devi assicurarti che i tuoi alias siano impostati, che il tuo bitcoind sia in funzione e che i tuoi blocchi siano scaricati. Se si è un utente avanzato, si può anche impostare l'accesso a configurazioni alternative di Bitcoin.
 
-## What's Next?
+## Cosa c'è Dopo?
 
-Continue "Understanding Your Bitcoin Setup" with [§3.2: Knowing Your Bitcoin Setup](03_2_Knowing_Your_Bitcoin_Setup.md).
+Continua il capitolo "Capire la Tua Configurazione Bitcoin" con [§3.2: Conoscere la Tua Configurazione Bitcoin](03_2_Conoscere_la_Tua_Configurazione_Bitcoin.md).
