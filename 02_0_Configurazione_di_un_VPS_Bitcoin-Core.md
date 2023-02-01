@@ -10,7 +10,7 @@ Dopo aver affrontato questo capitolo, uno sviluppatore sarà in grado di:
 * Creare un nodo Bitcoin per lo sviluppo
 * Creare un'istanza locale della Blockchain di Bitcoin
 
-Gli obiettivi di supporto includono la capacità di:
+Altri obiettivi del corso includono la capacità di:
 
 * Comprendere la configurazione di base della rete del VPS
 * Decidere quali priorità di sicurezza implementare
