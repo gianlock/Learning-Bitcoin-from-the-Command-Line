@@ -1,6 +1,6 @@
 # Intermezzo: Introduzione a Bitcoin
 
-Prima di iniziare a programmare Bitcoin (e Lightning), è necessario avere una conoscenza base di cosa sono e come funzionano. Questa sezione fornisce una panoramica di come funzionano e ha il solo scopo di gettare le basi. Troverai molte altre definizioni nei capitoli successivi.
+Prima d'iniziare a programmare Bitcoin (e Lightning), è necessario avere una conoscenza base di cosa sono e come funzionano. Questa sezione fornisce una panoramica di come funzionano e ha il solo scopo di gettare le basi. Troverai molte altre definizioni nei capitoli successivi.
 
 ## Bitcoin
 
@@ -8,11 +8,11 @@ Bitcoin è un protocollo che consente lo scambio di valuta bitcoin. Si basa su u
 
 Ovviamente, Bitcoin è il fulcro intorno a cui ruota questo libro, ha ispirato la creazione di altri sistemi come le blockchain e Lightning, che saranno ben spiegati in questo tutorial, ma ha ispirato anche molte altre shitcoin come Ethereum e Litecoin, che non lo saranno.
 
-**_Come viene trasferita la moneta?_** La valuta bitcoin non è una moneta fisica ma una serie infinita di passaggi di proprietà. Quando una persona invia denaro ad un'altra, quel trasferimento viene memorizzato. È la transazione che attesta la proprietà del denaro, non la presenza di una moneta nel portafoglio.
+**_Come viene trasferita la moneta?_** La valuta bitcoin non è una moneta fisica ma una serie infinita di passaggi di proprietà. Quando una persona invia denaro a un'altra, quel trasferimento viene memorizzato. È la transazione che attesta la proprietà del denaro, non la presenza di una moneta nel portafoglio.
 
 **_A chi puoi inviare monete?_** La stragrande maggioranza delle transazioni di bitcoin comporta l'invio di monete a singole persone (o singoli indirizzi Bitcoin). Tuttavia, è possibile utilizzare metodologie più complesse per inviare bitcoin a gruppi di persone o per eseguire script. Queste varie metodologie hanno nomi come P2PKH, multisig e P2SH.
 
-**_Come vengono memorizzate le transazioni?_** Le transazioni vengono combinate in grandi blocchi di dati, che vengono poi scritti nel registro blockchain. Un blocco è costruito in modo tale da non poter essere sostituito o modificato una volta che i blocchi sucessivi sono stati costruiti successivamente e in correlazione ad esso. Questo è ciò che rende i bitcoin non ripudiabili: il database globale decentralizzato in cui tutto è registrato è effettivamente un database permanente e immutabile.
+**_Come vengono memorizzate le transazioni?_** Le transazioni vengono combinate in grandi blocchi di dati, che vengono poi scritti nel registro blockchain. Un blocco è costruito in modo tale da non poter essere sostituito o modificato una volta che i blocchi sucessivi sono stati costruiti successivamente e in correlazione a esso. Questo è ciò che rende i bitcoin non ripudiabili: il database globale decentralizzato in cui tutto è registrato è effettivamente un database permanente e immutabile.
 
 Tuttavia, il processo di costruzione di questi blocchi è aleatorio, in qualche modo casuale. Data una transazione, non si potrà mai essere certi in quale blocco verrà inserita. Ci possono anche essere cambiamenti nei blocchi se molto recenti, ma solo se _molto_ recenti. Quindi, le transazioni sono autenticate (permanenti e immutabili) solo dopo un po' di blocchi e quindi di tempo.
 
@@ -22,7 +22,7 @@ I fondi sono ulteriormente protetti con l'uso di funzioni hash. Le chiavi pubbli
 
 **_Come sono create le transazioni?_** Il cuore di ogni transazione Bitcoin è un linguaggio di scripting simile a FORTH che viene utilizzato per bloccare la transazione. Per riutilizzare il denaro, il destinatario fornisce allo script informazioni specifiche che dimostrano che è il destinatario legittimo.
 
-Tuttavia, questi script Bitcoin rappresentano il codice a più basso livello di Bitcoin. Gran parte del lavoro di Bitcoin viene svolto attraverso il deamon Bitcoin `bitcoind`, che viene controllato attraverso comandi RPC. Molti inviano questi comandi RPC attraverso il programma `bitcoin-cli`, che fornisce un'interfaccia semplificata. Tuttavia l'utente medio non avezzo alla programmazione non si preoccupa nemmeno di queste minuzie, ma utilizza portafogli con interfacce ancora più semplificate.
+Tuttavia, questi script Bitcoin rappresentano il codice a più basso livello di Bitcoin. Gran parte del lavoro di Bitcoin viene svolto attraverso il deamon Bitcoin `bitcoind`, che viene controllato attraverso comandi RPC. Molti inviano questi comandi RPC attraverso il programma `bitcoin-cli`, che fornisce un'interfaccia semplificata. Tuttavia l'utente medio non avvezzo alla programmazione non si preoccupa nemmeno di queste minuzie, ma utilizza portafogli con interfacce ancora più semplificate.
 
 ### Bitcoin — In Breve
 
@@ -32,7 +32,7 @@ Un modo per pensare a Bitcoin è come _una sequenza di transazioni indivisibili_
 
 La crittografia a chiave pubblica è un sistema matematico per proteggere i dati e dimostrarne la proprietà attraverso una coppia asimmetrica di chiavi collegate: la chiave pubblica e la chiave privata.
 
-È importante per Bitcoin (e per la maggior parte dei sistemi blockchain) perché è la base della crittografia che protegge i fondi della criptovaluta. Una transazione Bitcoin viene tipicamente inviata ad un indirizzo che è un hash della chiave pubblica. Il destinatario è quindi in grado di recuperare il denaro rivelando la chiave pubblica e quella privata.
+È importante per Bitcoin (e per la maggior parte dei sistemi blockchain) perché è la base della crittografia che protegge i fondi della criptovaluta. Una transazione Bitcoin viene tipicamente inviata a un indirizzo che è un hash della chiave pubblica. Il destinatario è quindi in grado di recuperare il denaro rivelando la chiave pubblica e quella privata.
 
 **_Cos'è una chiave Pubblica?_** Una chiave pubblica è la chiave che viene data ad altre persone. In un tipico sistema a chiave pubblica, un utente genera una chiave pubblica e una chiave privata, poi dà la chiave pubblica a tutti. I destinatari possono criptare le informazioni con la chiave pubblica, ma non possono decifrarle con la stessa chiave pubblica a causa dell'asimmetria della coppia di chiavi.
 
@@ -56,7 +56,7 @@ L'ECC non verrà trattato con molta attenzione in questo tutorial. Questo perch�
 
 **_Cos'è una Curva Ellittica?_** Una curva ellittica è una curva geometrica descritta dall'equazione `y`<sup>`2`</sup> = `x`<sup>`3`</sup>` + ax + b`. Una curva ellittica specifica viene scelta selezionando valori specifici di "a" e "b". La curva deve quindi essere attentamente esaminata per determinare se funziona bene per la crittografia. Ad esempio, la curva secp256k1 utilizzata da Bitcoin è definita come `a=0` e `b=7`.
 
-Qualsiasi linea che interseca una curva ellittica lo farà in 1 o 3 punti... e questa è la base della crittografia a curva ellittica.
+Qualsiasi linea che interseca una curva ellittica lo farà in 1 o 3 punti... E questa è la base della crittografia a curva ellittica.
 
 **_Cosa sono i campi finiti?_** Un campo finito è un insieme finito di numeri, in cui i risultati di tutte le addizioni, sottrazioni, moltiplicazioni e divisioni sono compresi nello stesso campo finito. Un modo semplice per creare un campo finito è attraverso l'uso di una funzione modulo.
 
@@ -66,7 +66,7 @@ Qualsiasi linea che interseca una curva ellittica lo farà in 1 o 3 punti... e q
 
 Questa particolare proprietà spiega perché i campi finiti vengono utilizzati nelle curve ellittiche: garantisce che la chiave privata non diventi troppo grande. Si noti che il campo finito per secp256k1 è leggermente inferiore a 256 bit, il che significa che tutte le chiavi pubbliche saranno lunghe 256 bit, proprio come lo sono le chiavi private.
 
-**_Quali sono i vantaggi dell'ECC?_** Il vantaggio principale dell'ECC è di consertire un livello di sicurezza della classica crittografia a chiave pubblica con una chiave molto più piccola. Una chiave pubblica a curva ellittica a 256 bit corrisponde a una chiave pubblica tradizionale (RSA) a 3072 bit.
+**_Quali sono i vantaggi dell'ECC?_** Il vantaggio principale dell'ECC è di consentire un livello di sicurezza della classica crittografia a chiave pubblica con una chiave molto più piccola. Una chiave pubblica a curva ellittica a 256 bit corrisponde a una chiave pubblica tradizionale (RSA) a 3072 bit.
 
 ### ECC - In Breve
 
@@ -78,7 +78,7 @@ La Blockchain è la generalizzazione del metodo utilizzato da Bitcoin per creare
 
 Sebbene tu debba comprendere le basi di come funziona una blockchain per capire come funzionano le transazioni in Bitcoin, non avrai bisogno di andare oltre. Poiché le blockchain sono diventate una vasta categoria di tecnologie, questi concetti di base saranno probabilmente applicabili a molti altri progetti in questo settore. Tuttavia, i comandi di programmazione appresi in questo libro non lo saranno, poiché specifici per Bitcoin (e Lightning).
 
-**_Perché si chiama chain (catena)?_** Ogni blocco nella blockchain memorizza un hash del blocco precedente. Questo collega il blocco attuale fino al primo blocco originale (Blocco Genesi), attraverso una catena ininterrotta. È un modo per creare un ordine assoluto tra dati potenzialmente in conflitto. Poichè ogni blocco è costruito al di sopra di quello precedente attraverso un algoritmo di Proof-of-Work (Prova di Lavoro), più blocchi verranno costruiti, più la catena sarà computazionalmente sconveniente da ricorstruire. Questo rende una blockchain irreversibile e quindi sicura.
+**_Perché si chiama chain (catena)?_** Ogni blocco nella blockchain memorizza un hash del blocco precedente. Questo collega il blocco attuale fino al primo blocco originale (Blocco Genesi), attraverso una catena ininterrotta. È un modo per creare un ordine assoluto tra dati potenzialmente in conflitto. Poichè ogni blocco è costruito al di sopra di quello precedente attraverso un algoritmo di Proof-of-Work (Prova di Lavoro), più blocchi verranno costruiti, più la catena sarà computazionalmente sconveniente da ricostruire. Questo rende una blockchain irreversibile e quindi sicura.
 
 **_Cos'è un Fork?_** Occasionalmente vengono creati due blocchi nello stesso momento. Questo crea temporaneamente un fork di un blocco, dove entrambi i blocchi potrebbero essere quelli "reali". Di tanto in tanto, un fork potrebbe espandersi fino a diventare lungo due, tre o anche quattro blocchi, ma abbastanza rapidamente si determinerà che solo uno dei fork è quello accettato, mentre l'altro sarà considerato "orfano". Questo fa parte del processo stocastico di creazione dei blocchi e dimostra perché diversi blocchi devono essere costruiti nella blockchain prima che possa essere considerato valido e non ripudiabile.
 
@@ -121,7 +121,7 @@ Si noti che per alcune di queste situazioni possono ancora esistere soluzioni al
 
 Lightning è un layer-2 (protocollo di secondo livello) che interagisce con Bitcoin per consentire agli utenti di scambiare i propri bitcoin "off-chain" (esternamente alla blockchain principale). Rispetto l'utilizzo diretto di Bitcoin presenta sia vantaggi che svantaggi.
 
-Lightning è anche l'argomento secondario di questo tutorial. Sebbene si occupi principalmente di interagire direttamente con Bitcoin (e con `bitcoind`), dedica una certa attenzione a Lightning perché è una tecnologia emergente che probabilmente diventerà un'alternativa diffusa a Bitcoin. Questo libro adotta lo stesso approccio a Lightning e a Bitcoin: insegna come interagire direttamente con un deamon Lightning da riga di comando.
+Lightning è anche l'argomento secondario di questo tutorial. Sebbene si occupi principalmente d'interagire direttamente con Bitcoin (e con `bitcoind`), dedica una certa attenzione a Lightning perché è una tecnologia emergente che probabilmente diventerà un'alternativa diffusa a Bitcoin. Questo libro adotta lo stesso approccio a Lightning e a Bitcoin: insegna come interagire direttamente con un deamon Lightning da riga di comando.
 
 A differenza di Bitcoin, esistono diverse varianti di Lightning. Questo tutorial utilizza l'implementazione [c-lightning](https://github.com/ElementsProject/lightning) come server Lightning attendibile.
 
@@ -133,7 +133,7 @@ A differenza di Bitcoin, esistono diverse varianti di Lightning. Questo tutorial
 
 **_Quali sono i vantaggi di Lightning?_** Lightning consente di effettuare transazioni più veloci con commissioni inferiori. Questo rende reale la possibilità di micropagamenti finanziati da bitcoin. In aggiunta Lightning, in quanto off-chain, offre una migliore privacy in quanto solo il primo e l'ultimo stato della transazione verranno riportati nel ledger Bitcoin (libro mastro immutabile di Bitcoin).
 
-**_Quali sono gli svantaggi di Lightning?_** Lightning è ancora una tecnologia molto nuova e non testata a fondo come Bitcoin. Non si tratta solo di una questione di implementazione tecnologica, ma anche di capire se il protocollo stesso può essere sfruttato in modo inaspettato.
+**_Quali sono gli svantaggi di Lightning?_** Lightning è ancora una tecnologia molto nuova e non testata a fondo come Bitcoin. Non si tratta solo di una questione d'implementazione tecnologica, ma anche di capire se il protocollo stesso può essere sfruttato in modo inaspettato.
 
 ### Lightning - In Breve
 
