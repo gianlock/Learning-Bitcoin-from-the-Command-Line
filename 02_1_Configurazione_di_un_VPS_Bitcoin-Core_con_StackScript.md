@@ -8,7 +8,7 @@ Questo documento spiega come configurare un VPS (Server Virtuale Privato) per fa
 * Se, invece, vuoi configurare una macchina diversa da un VPS Linode, come un macchina AWS o un Mac, leggi [§2.2: Configurazione di una Macchina Bitcoin-Core Tramite Altri Metodi](02_2_Configurazione_di_un_Bitcoin-Core_Altro.md)
 * Se invece stai già eseguendo un nodo Bitcoin, passa al [Capitolo Tre: Capire la Tua Configurazione Bitcoin](03_0_Capire_la_Tua_Configurazione_Bitcoin.md)
 
-## Per Iniziare con Linode
+## Iniziare con Linode
 
 Linode è un servizio di Cloud Hosting che offre server Linux veloci ed economici con archiviazione SSD. Li utilizzeremo per questo tutorial principalmente perchè i loro StackScript basati su BASH offrono un modo semplice per configurare automaticamente un nodo Bitcoin senza problemi.
 
@@ -20,13 +20,13 @@ Puoi creare un account Linode al seguente link:
 https://www.linode.com
 ```
 
-Se preferisci, il link di seguito contiene un codice sconto che ti regala due mesi di utilizzo gratuito (fino a €100), ottimo per imparare Bitcoin: 
+Se preferisci, il seguente link contiene un codice sconto per due mesi di utilizzo gratuito (fino a €100), ottimo per imparare Bitcoin: 
 
 <https://www.linode.com/?r=3c7fa15a78407c9a3d4aefb027539db2557b3765>
 
 Dovrai fornire un indirizzo mail e successivamente ricaricare l'importo per i costi futuri da una carta di credito o PayPal.
 
-Una volta terminato, dovresti atterrare sulla pagina <https://cloud.linode.com/dashboard>.
+Una volta terminato, dovresti giungere sulla pagina <https://cloud.linode.com/dashboard>.
 
 ### Prendete in Considerazione la 2FA
 
@@ -97,7 +97,7 @@ Potrai ora cambiare nome del tuo VPS Linode da quello assegnato di default `lino
 
 ## Login al Tuo VPS
 
-Se controlli il pannello di controllo di Linode, dovresti vedere il nuovo computer avviarsi. Quando il lavoro ha raggiunto il 100%, sarete in grado di accedere.
+Se controlli il pannello di controllo di Linode, dovresti vedere il nuovo computer avviarsi. Quando il job ha raggiunto il 100%, sarete in grado di accedere.
 
 Per prima cosa, è necessario l'indirizzo IP. Cliccate sulla scheda "Linodes" e dovreste vedere un elenco del vostro VPS, il fatto che sia in esecuzione, il suo "piano", il suo indirizzo IP e alcune altre informazioni.
 
