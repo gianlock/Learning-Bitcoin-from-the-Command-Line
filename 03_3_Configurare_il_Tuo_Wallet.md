@@ -1,20 +1,20 @@
-# 3.3: Setting Up Your Wallet
+# 3.3: Configurare il Tuo Wallet
 
-You're now ready to start working with Bitcoin. To begin with, you'll need to create a wallet for sending and receiving funds.
+Ora siete pronti per iniziare a lavorare con Bitcoin. Per cominciare, dovrete creare un wallet per inviare e ricevere fondi.
 
-## Create a Wallet
+## Creare un Wallet
 
-> :warning: **VERSION WARNING:** Newer versions of Bitcoin Core, starting with v0.21.0, will no longer automatically create a default wallet on startup. So, you will need to manually create one. But if you're running an older version of Bitcoin Core, a new wallet has already been created for you, in which case you can skip ahead to [Create an Address](#create-an-address).
+> :warning: **AVVISO SULLA VERSIONE:** Le nuove versioni di Bitcoin Core, a partire dalla v0.21.0, non creano più automaticamente un wallet predefinito all'avvio. È quindi necessario crearne uno manualmente. Ma se state utilizzando una versione precedente di Bitcoin Core, un nuovo wallet è già stato creato e potete passare a [Creare un Indirizzo](#creare-un-indirizzo).
 
-The first thing you need to do is create a new wallet, which can be done with the `bitcoin-cli createwallet` command. By creating a new wallet, you'll be creating your public-private key pair. Your public key is the source from which your addresses will be created, and your private key is what will allow you to spend any funds you receive into your addresses. Bitcoin Core will automatically save that information into a `wallet.dat` file in your `~/.bitcoin/testnet3/wallets` directory.
+La prima cosa da fare è creare un nuovo wallet, con il comando `bitcoin-cli createwallet`. Creando un nuovo wallet, si creerà la coppia di chiavi pubbliche e private. La chiave pubblica è la fonte da cui verranno creati i tuoi indirizzi, mentre la chiave privata è quella che ti permetterà di spendere i fondi che riceverai nei tuoi indirizzi. Bitcoin Core salverà automaticamente queste informazioni in un file `wallet.dat` nella cartella `~/.bitcoin/testnet3/wallets`.
 
-If you check your `wallets` directory, you'll see that it's currently empty.
+Se verifichi la cartella `wallets`, vedrai che attualmente è vuota.
 ```
 $ ls ~/.bitcoin/testnet3/wallets
 $
 ```
 
-Although Bitcoin Core won't create a new wallet for you, it will still load a top-level unnamed ("") wallet on startup by default. You can take advantage of this by creating a new unnamed wallet.
+Anche se Bitcoin Core non creerà un nuovo wallet per te, all'avvio caricherà comunque un wallet di primo livello senza nome ("") per impostazione predefinita. Potete approfittarne creando un nuovo wallet senza nome.
 ```
 $ bitcoin-cli -named createwallet wallet_name="" descriptors=false
 
@@ -24,25 +24,25 @@ $ bitcoin-cli -named createwallet wallet_name="" descriptors=false
 }
 ```
 
-Now, your `wallets` directory should be populated.
+Ora, la tua cartella `wallets` dovrebbe risultare popolata.
 ```
 $ ls ~/.bitcoin/testnet3/wallets
 database  db.log  wallet.dat
 ```
 
-> :book: ***What is a Bitcoin wallet?*** A Bitcoin wallet is the digital equivalent of a physical wallet on the Bitcoin network. It stores information on the amount of bitcoins you have and where it's located (addresses), as well as the ways you can use to spend it. Spending physical money is intuitive, but to spend bitcoins users need to provide the correct _private key_. We will explain this in more detail throughout the course, but what you should know for now is that this public-private key dynamic is part of what makes Bitcoin secure and trustless. Your key pair information is saved in the `wallet.dat` file, in addition to data about preferences and transactions. For the most part, you won't have to worry about that private key: `bitcoind` will use it when it's needed. However, this makes the `wallet.dat` file extremely important: if you lose it, you lose your private keys, and if you lose your private keys, you lose your funds!
+> :book: ***Cos'è un wallet Bitcoin?*** Un wallet Bitcoin è l'equivalente digitale di un portafoglio fisico sulla rete Bitcoin. In esso sono memorizzate le informazioni sulla quantità di bitcoin posseduti e sulla loro posizione (indirizzi), oltre ai modi in cui è possibile spenderli. Spendere denaro fisico è intuitivo, ma per spendere i bitcoin gli utenti devono fornire la corretta _chiave privata_. Lo spiegheremo in modo più dettagliato durante il corso, ma per ora è bene sapere che questa dinamica di chiave pubblica e privata è parte di ciò che rende Bitcoin sicuro e _trustless_. Le informazioni sulla coppia di chiavi vengono salvate nel file `wallet.dat`, oltre ai dati sulle preferenze e sulle transazioni. Per lo più, non ci si dovrà preoccupare della chiave privata: `bitcoind` la userà quando sarà necessaria. Tuttavia, questo rende il file `wallet.dat` estremamente importante: se lo si perde, si perdono le chiavi private, e se si perdono le chiavi private, si perdono i fondi!
 
-Sweet, now you have a Bitcoin wallet. But a wallet will be of little use for receiving bitcoins if you don't create an address first.
+Bene, ora avete un wallet Bitcoin. Ma un wallet è poco utile per ricevere bitcoin se prima non si crea un indirizzo.
 
-> :warning: **VERSION WARNING:** Starting in Bitcoin Core v 23.0, descriptor wallets became the default. That's great, because descriptor wallets are very powerful, except they don't currently work with multisigs! So, we turn them off with the "descriptors=false" argument. See [§3.5](https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/blob/master/03_5_Understanding_the_Descriptor.md) for more on descriptors.
+> :warning: **AVVISO SULLA VERSIONE:** A partire da Bitcoin Core v 23.0, i portafogli con descrittori sono diventati predefiniti. È un'ottima cosa, perché i portafogli con descrittori sono molto potenti, ma al momento non funzionano con i multisigs! Quindi, li disattiviamo con l'argomento "descriptors=false". Vedi [§3.5](03_5_Capire_il_Descrittore.md) per approfondire i descrittori.
 
-## Create an Address
+## Creare un Indirizzo
 
-The next thing you need to do is create an address for receiving payments. This is done with the `bitcoin-cli getnewaddress` command. Remember that if you want more information on this command, you should type `bitcoin-cli help getnewaddress`. Currently, there are three types of addresses: `legacy` and the two types of SegWit address, `p2sh-segwit` and `bech32`. If you do not otherwise specify, you'll get the default, which is currently `bech32`.
+La prossima cosa da fare è creare un indirizzo per ricevere i pagamenti. Questo è possibile con il comando `bitcoin-cli getnewaddress`. Ricorda che se vuoi maggiori informazioni su questo comando, devi digitare `bitcoin-cli help getnewaddress`. Attualmente esistono tre tipi di indirizzi: `legacy` e i due tipi di indirizzi SegWit, `p2sh-segwit` e `bech32`. Se non si specifica diversamente, si otterrà quello predefinito, che attualmente è `bech32`.
 
-However, for the next few sections we're instead going to be using `legacy` addresses, both because `bitcoin-cli` had some teething problems with its early versions of SegWit addresses, and because other people might not be able to send to `bech32` addresses. This is all unlikely to be a problem for you now, but for the moment we want to get your started with transaction examples that are (mostly) guaranteed to work.
+Tuttavia, per le prossime sezioni utilizzeremo indirizzi `legacy`, sia perché `bitcoin-cli` ha avuto alcuni problemi iniziali con le prime versioni degli indirizzi SegWit, sia perché altre persone potrebbero non essere in grado di inviare a indirizzi `bech32`. È improbabile che questo sia un problema per te, ma per il momento vogliamo che inizi con esempi di transazioni che sono (per lo più) garantite come funzionanti.
 
-First, restart `bitcoind` so your new unnamed wallet is set as default and automatically loaded.
+Per prima cosa, riavvia `bitcoind` in modo che il nuovo wallet senza nome sia impostato come predefinito e caricato automaticamente.
 ```
 $ bitcoin-cli stop
 Bitcoin Core stopping # wait a minute so it stops completely
@@ -50,62 +50,62 @@ $ bitcoind -daemon
 Bitcoin Core starting # wait a minute so it starts completely
 ```
 
-You can now create an address. You can require `legacy` address either with the second argument to `getnewaddress` or with the named `addresstype` argument.
+A questo punto è possibile creare un indirizzo. È possibile richiedere un indirizzo `legacy` con il secondo argomento di `getnewaddress` o con l'argomento `addresstype`.
 ```
 $ bitcoin-cli getnewaddress -addresstype legacy
 moKVV6XEhfrBCE3QCYq6ppT7AaMF8KsZ1B
 ```
-Note that this address begins with an "m" (or sometimes an "n") to signify a testnet Legacy address. It would be a "2" for a P2SH address or a "tb1" for a Bech32 address.
+Nota che questo indirizzo inizia con una "m" (o talvolta con una "n") per indicare un indirizzo Legacy di testnet. Sarebbe un "2" per un indirizzo P2SH o un "tb1" per un indirizzo Bech32.
 
-> :link: **TESTNET vs MAINNET:** The equivalent mainnet address would start with a "1" (for Legacy), "3" (for P2SH), or "bc1" (for Bech32).
+> :link: **TESTNET vs MAINNET:** L'indirizzo equivalente della mainnet inizierebbe con "1" (per Legacy), "3" (per P2SH) o "bc1" (per Bech32).
 
-Take careful note of the address. You'll need to give it to whomever will be sending you funds.
+Prendete nota dell'indirizzo. Dovrete fornirlo a chi vi invierà i fondi.
 
-> :book: ***What is a Bitcoin address?*** A Bitcoin address is literally where you receive money. It's like an email address, but for funds. Technically, it's a public key, though different address schemes adjust that in different ways. However unlike an email address, a Bitcoin address should be considered single use: use it to receive funds just _once_. When you want to receive funds from someone else or at some other time, generate a new address. This is suggested in large part to improve your privacy. The whole blockchain is immutable, which means that explorers can look at long chains of transactions over time, making it possible to statistically determine who you and your contacts are, no matter how careful you are. However, if you keep reusing the same address, then this becomes even easier. By creating your first Bitcoin address, you've also begun to fill in your Bitcoin wallet. More precisely, you've begun to fill the `wallet.dat` file in your `~/.bitcoin/testnet3 /wallets` directory.
+> :book: ***Cos'è un indirizzo Bitcoin?*** Un indirizzo Bitcoin è letteralmente dove si riceve il denaro. È come un indirizzo e-mail, ma per i fondi. Tecnicamente, si tratta di una chiave pubblica, anche se i diversi schemi di indirizzo la gestiscono in modo diverso. Tuttavia, a differenza di un indirizzo di posta elettronica, un indirizzo Bitcoin dovrebbe essere considerato monouso: usatelo per ricevere fondi solo _una volta_. Quando volete ricevere fondi da qualcun altro o in un altro momento, generate un nuovo indirizzo. Questo è consigliato soprattutto per migliorare la privacy dell'utente. L'intera blockchain è immutabile, il che significa che gli explorer possono esaminare lunghe catene di transazioni nel tempo, rendendo possibile determinare statisticamente chi sei tu e i tuoi contatti, a prescindere da quanto tu sia attento. Tuttavia, se si continua a riutilizzare lo stesso indirizzo, questo diventa ancora più facile. Creando il tuo primo indirizzo Bitcoin, hai anche iniziato a riempire il tuo wallet Bitcoin. Più precisamente, avete iniziato a riempire il file `wallet.dat` nella vostra directory `~/.bitcoin/testnet3 /wallets`.
 
-With a single address in hand, you could jump straight to the next section and begin receiving funds. However, before we get there, we're going to briefly discuss the other sorts of addresses that you'll meet in the future and talk about a few other wallet commands that you might want to use in the future.
+Con un singolo indirizzo in mano, si può passare direttamente alla sezione successiva e iniziare a ricevere fondi. Tuttavia, prima di arrivare a questo punto, discuteremo brevemente degli altri tipi di indirizzi che incontrerete in futuro e parleremo di alcuni altri comandi del wallet che potresti voler usare in futuro.
 
-### Knowing Your Bitcoin Addresses
+### Conoscere gli Indirizzi Bitcoin
 
-There are three types of Bitcoin addresses that you can create with the `getnewaddress` RPC command. You'll be using a `legacy` (P2PKH) address here, while you'll move over to a SegWit (P2SH-SegWit) or Bech32 address in [§4.6: Creating a Segwit Transaction](04_6_Creating_a_Segwit_Transaction.md).
+Esistono tre tipi di indirizzi Bitcoin che si possono creare con il comando RPC `getnewaddress`. In questo caso si utilizzerà un indirizzo `legacy` (P2PKH), mentre si passerà a un indirizzo SegWit (P2SH-SegWit) o Bech32 in [§4.6: Creare una Transazione Segwit](04_6_Creare_una_Transazione_Segwit.md).
 
-As noted above, the foundation of a Bitcoin address is a public key: someone sends funds to your public key, and then you use your private key to redeem it. Easy? Except putting your public key out there isn't entirely secure. At the moment, if someone has your public key, then they can't retrieve your private key (and thus your funds); that's the basis of cryptography, which uses a trap-door function to ensure that you can only go from private to public key, and not vice-versa. But the problem is that we don't know what the future might bring. Except we do know that cryptography systems eventually get broken by the relentless advance of technology, so it's better not to put raw public keys on the 'net, to future-proof your transactions.
+Come già detto, la base di un indirizzo Bitcoin è una chiave pubblica: qualcuno invia fondi alla vostra chiave pubblica e voi usate la vostra chiave privata per riscattarli. Semplice? Ma mettere in giro la propria chiave pubblica non è del tutto sicuro. Al momento, se qualcuno possiede la vostra chiave pubblica, non può recuperare la vostra chiave privata (e quindi i vostri fondi); questa è la base della crittografia, che utilizza una funzione di trap-door per garantire che si possa passare solo dalla chiave privata a quella pubblica, e non viceversa. Ma il problema è che non sappiamo cosa ci riserverà il futuro. Sappiamo però che i sistemi di crittografia finiscono per essere violati dall'inarrestabile progresso della tecnologia, quindi è meglio non mettere in rete chiavi pubbliche grezze, per proteggere le transazioni dal futuro.
 
-Classic Bitcoin transactions created P2PKH addresses that added an additional cryptographic step to protect public keys.
+Le transazioni Bitcoin tradizionali creavano indirizzi P2PKH che aggiungevano un ulteriore passaggio crittografico per proteggere le chiavi pubbliche.
 
-> :book: ***What is a Legacy (P2PKH) address?*** This is a Legacy address of the sort used by the early Bitcoin network. We'll be using it in examples for the next few sections. It's called a Pay to PubKey Hash (or P2PKH) address because the address is a 160-bit hash of a public key. Using a hash of your public key as your address creates a two-step process where to spend funds you need to reveal both the private key and the public key, and it increases future security accordingly. This sort of address remains important for receiving funds from people with out-of-date wallet software.
+> :book: ***Cos'è un indirizzo Legacy (P2PKH)?*** Si tratta di un indirizzo Legacy del tipo utilizzato dalla prima rete Bitcoin. Lo utilizzeremo negli esempi delle prossime sezioni. È chiamato indirizzo Pay to PubKey Hash (o P2PKH) perché l'indirizzo è un hash a 160 bit di una chiave pubblica. L'utilizzo di un hash della propria chiave pubblica come indirizzo crea un processo a due fasi in cui per spendere i fondi è necessario rivelare sia la chiave privata che la chiave pubblica, aumentando di conseguenza la sicurezza futura. Questo tipo di indirizzo rimane importante per ricevere fondi da persone con software wallet non aggiornati.
 
-As described more fully in [§4.6: Creating a Segwit Transaction](04_6_Creating_a_Segwit_Transaction.md), the Block Size Wars of the late '10s resulted in a new sort of address: SegWit. This is the preferred sort of address currently, and should be fully integrated into Bitcoin-Core at this point, but nonetheless we're saving it for §4.6.
+Come descritto più dettagliatamente in [§4.6: Creare una Transazione Segwit](04_6_Creare_una_Transazione_Segwit.md), le _Block Size Wars_ (guerre sulla dimensione dei blocchi) della fine degli anni '10 hanno portato a un nuovo tipo di indirizzo: SegWit. Questo è il tipo di indirizzo attualmente preferito e a questo punto dovrebbe essere pienamente integrato in Bitcoin-Core, ma comunque lo lasciamo per il §4.6.
 
-SegWit simply means "segregated witness" and it's a way of separating the transaction signatures out from the rest of the transaction to reduce transaction size. Some SegWit addresses will sneak into some of our examples prior to §4.6 as change addresses, which you'll see as addresses that begin with "tb". This is fine because the `bitcoin-cli` entirely supports their usage. But we won't use them otherwise.
+SegWit significa semplicemente " segregated witness" (testimone segregato) ed è un modo per separare le firme della transazione dal resto della transazione per ridurre le dimensioni della transazione stessa. Alcuni indirizzi SegWit si intrufoleranno in alcuni dei nostri esempi prima del §4.6 come indirizzi di modifica, che vedreai come indirizzi che iniziano con "tb". Questo va bene perché `bitcoin-cli` supporta completamente il loro utilizzo. Ma non li useremo comunque.
 
-There are two addresses of this sort:
+Esistono due indirizzi di questo tipo:
 
-> :book: ***What is a P2SH-SegWit (aka Nested SegWit) address?*** This is the first generation of SegWit. It wraps the SegWit address in a Script hash to ensure backward compatibility. The result creates transactions that are about 25%+ smaller (with corresponding reductions in transaction fees). 
+> :book: ***Cos'è un indirizzo P2SH-SegWit (aka Nested SegWit)?*** Si tratta della prima generazione di SegWit. L'indirizzo SegWit è racchiuso in un hash Script per garantire la compatibilità con il passato. Il risultato è che le transazioni sono più piccole di circa il 25% (con una rispettiva riduzione delle commissioni di transazione).
 
-> :book: ***What is a Bech32 (aka Native SegWit, aka P2WPKH) address?*** This is the second generation of SegWit. It's fully described in [BIP 173](https://en.bitcoin.it/wiki/BIP_0173). It creates transactions that are even smaller but more notably also has some advantages in creating addresses that are less prone to human error and have some implicit error-correction beyond that. It is *not* backward compatible like P2SH-SegWit was, and so some people may not be able to send to it.
+> :book: ***Cos'è un indirizzo Bech32 (aka Native SegWit, aka P2WPKH)?*** Questa è la seconda generazione di SegWit. È completamente descritta in [BIP 173](https://en.bitcoin.it/wiki/BIP_0173). Crea transazioni ancora più piccole, ma soprattutto presenta alcuni vantaggi nella creazione di indirizzi meno inclini all'errore umano e ha una correzione implicita degli errori. Non è *compatibile* all'indietro come lo era P2SH-SegWit, e quindi alcune persone potrebbero non essere in grado di inviare a questo tipo di indirizzo.
 
-There are other sorts of Bitcoin addresses, such as P2PK (which paid to a bare public key, and is deprecated because of its future insecurity) and P2SH (which pays to a Script Hash, and which is used by the first-generation Nested SegWit addresses; we'll meet it more fully in a few chapters).
+Esistono altri tipi di indirizzi Bitcoin, come il P2PK (che paga una chiave pubblica nuda, deprecato a causa della sua futura insicurezza) e il P2SH (che paga uno Script Hash, utilizzato dagli indirizzi Nested SegWit di prima generazione; lo vedremo meglio tra qualche capitolo).
 
-## Optional: Sign a Message
+## Opzionale: Firmare un Messaggio
 
-Sometimes you'll need to prove that you control a Bitcoin address (or rather, that you control its private key). This is important because it lets people know that they're sending funds to the right person. This can be done by creating a signature with the `bitcoin-cli signmessage` command, in the form `bitcoin-cli signmessage [address] [message]`. For example:
+A volte potresti avere la necessità di dimostrare che controlli un indirizzo Bitcoin (o meglio, che ne controlli la chiave privata). Questo è importante perché permette di sapere che si stanno inviando fondi alla persona giusta. Questo può essere fatto creando una firma con il comando `bitcoin-cli signmessage`, nella forma `bitcoin-cli signmessage [indirizzo] [messaggio]`. Ad esempio:
 ```
 $ bitcoin-cli signmessage "moKVV6XEhfrBCE3QCYq6ppT7AaMF8KsZ1B" "Hello, World"
 HyIP0nzdcH12aNbQ2s2rUxLwzG832HxiO1vt8S/jw+W4Ia29lw6hyyaqYOsliYdxne70C6SZ5Utma6QY/trHZBI=
 ```
-You'll get the signature as a return.
+Si otterrà in risposta la firma.
 
-> :book: ***What is a signature?*** A digital signature is a combination of a message and a private key that can then be unlocked with a public key. Since there's a one-to-one correspendence between the elements of a keypair, unlocking with a public key proves that the signer controlled the corresponding private key.
+> :book: ***Cos'è una firma?*** Una firma digitale è una combinazione di un messaggio e di una chiave privata che può essere sbloccata con una chiave pubblica. Poiché esiste una corrispondenza uno-a-uno tra gli elementi di una coppia di chiavi, lo sblocco con una chiave pubblica dimostra che il firmatario è in possesso della chiave privata corrispondente.
 
-Another person can then use the `bitcoin-cli verifymessage` command to verify the signature. He inputs the address in question, the signature, and the message:
+Un'altra persona può quindi utilizzare il comando `bitcoin-cli verifymessage` per verificare la firma. Inserisce l'indirizzo in questione, la firma e il messaggio:
 ```
 $ bitcoin-cli verifymessage "moKVV6XEhfrBCE3QCYq6ppT7AaMF8KsZ1B" "HyIP0nzdcH12aNbQ2s2rUxLwzG832HxiO1vt8S/jw+W4Ia29lw6hyyaqYOsliYdxne70C6SZ5Utma6QY/trHZBI=" "Hello, World"
 true
 ```
-If they all match up, then the other person knows that he can safely transfer funds to the person who signed the message by sending to the address.
+Se tutti corrispondono, l'altra persona sa che può tranquillamente trasferire fondi alla persona che ha firmato il messaggio inviandolo all'indirizzo.
 
-If some black hat was making up signatures, this would instead produce a negative result:
+Se un black hat stesse inventando le firme, il risultato sarebbe invece negativo:
 ```
 $ bitcoin-cli verifymessage "FAKEV6XEhfrBCE3QCYq6ppT7AaMF8KsZ1B" "HyIP0nzdcH12aNbQ2s2rUxLwzG832HxiO1vt8S/jw+W4Ia29lw6hyyaqYOsliYdxne70C6SZ5Utma6QY/trHZBI=" "Hello, World"
 error code: -3
@@ -113,19 +113,19 @@ error message:
 Invalid address
 ```
 
-## Optional: Dump Your Wallet
+## Opzionale: Scaricare il wallet
 
-It might seem dangerous having all of your irreplaceable private keys in a single file. That's what `bitcoin-cli dumpwallet` is for. It lets you make a copy of your wallet.dat:
+Potrebbe sembrare pericoloso avere tutte le proprie chiavi private irriproducibili in un unico file. Ecco a cosa serve `bitcoin-cli dumpwallet`. Permette di fare una copia del proprio wallet.dat:
 ```
 $ bitcoin-cli dumpwallet ~/mywallet.txt
 ```
-The `mywallet.txt` file in your home directory will have a long list of private keys, addresses, and other information. Mind you, you'd never want to put this data out in a plain text file on a Bitcoin setup with real funds!
+Il file `mywallet.txt` nella vostra home directory conterrà un lungo elenco di chiavi private, indirizzi e altre informazioni. Si badi bene, non si vorrebbe mai mettere questi dati in un file di testo semplice su una configurazione Bitcoin con fondi reali!
 
-You can then recover it with `bitcoin-cli importwallet`.
+È possibile recuperarlo con `bitcoin-cli importwallet`.
 ```
 $ bitcoin-cli importwallet ~/mywallet.txt
 ```
-But note this requires an unpruned node!
+Ma questo richiede un nodo _unpruned_!
 ```
 $ bitcoin-cli importwallet ~/mywallet.txt
 error code: -4
@@ -133,36 +133,36 @@ error message:
 Importing wallets is disabled when blocks are pruned
 ```
 
-## Optional: View Your Private Keys
+## Opzionale: Visualizzare le Chiavi Private
 
-Sometimes, you might want to actually look at the private keys associated with your Bitcoin addresses. Perhaps you want to be able to sign a message or spend bitcoins from a different machine. Perhaps you just want to back up certain important private keys. You can also do this with your dump file, since it's human readable.
+A volte potresti voler dare un'occhiata alle chiavi private associate ai tuoi indirizzi Bitcoin. Forse si vuole essere in grado di firmare un messaggio o spendere bitcoin da un'altra macchina. Forse si vuole semplicemente fare un backup di alcune chiavi private importanti. È possibile farlo anche con il file di dump, poiché è leggibile dall'uomo.
 ```
 $ bitcoin-cli dumpwallet ~/mywallet.txt
 {
   "filename": "/home/standup/mywallet.txt"
 }
 ```
-More likely, you just want to look at the private key associated with a specific address. This can be done with the `bitcoin-cli dumpprivkey` command.
+È più probabile che si voglia solo esaminare la chiave privata associata a un indirizzo specifico. Questo può essere fatto con il comando `bitcoin-cli dumpprivkey`.
 ```
 $ bitcoin-cli dumpprivkey "moKVV6XEhfrBCE3QCYq6ppT7AaMF8KsZ1B"
 cTv75T4B3NsG92tdSxSfzhuaGrzrmc1rJjLKscoQZXqNRs5tpYhH
 ```
-You can then save that key somewhere safe, preferably somewhere not connected to the internet.
+È quindi possibile salvare la chiave in un luogo sicuro, preferibilmente non collegato a Internet.
 
-You can also import any private key, from a wallet dump or an individual key dump, as follows:
+È anche possibile importare qualsiasi chiave privata, da un dump di un portafoglio o da un dump di una chiave individuale, come segue:
 ```
 $ bitcoin-cli importprivkey cW4s4MdW7BkUmqiKgYzSJdmvnzq8QDrf6gszPMC7eLmfcdoRHtHh
 ```
-Again, expect this to require an unpruned node. Expect this to take a while, as `bitcoind` needs to reread all past transactions, to see if there are any new ones that it should pay attention to.
+Anche in questo caso, è necessario un nodo _unpruned_. Ci vorrà un po' di tempo, perché `bitcoind` deve rileggere tutte le transazioni passate, per vedere se ce ne sono di nuove a cui prestare attenzione.
 
-> :information_source: **NOTE:** Many modern wallets prefer [mnemonic codes](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) to generate the seeds necessary to create the private keys. This methodology is not used `bitcoin-cli`, so you won't be able to generate handy word lists to remember your private keys.
+> :information_source: **NOTA:** Molti portafogli moderni preferiscono i [codici mnemonici] (https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) per generare i semi necessari a creare le chiavi private. Questa metodologia non è utilizzata in `bitcoin-cli`, quindi non sarà possibile generare comode liste di parole per ricordare le chiavi private.
 
-_You've been typing that Bitcoin address you generated a _lot_, while you were signing messages and now dumping keys. If you think it's a pain, we agree. It's also prone to errors, a topic that we'll address in the very next section._
+_Hai digitato spesso l'indirizzo Bitcoin che hai generato, mentre firmavi i messaggi e ora per scaricare le chiavi. Se pensi che sia una seccatura, siamo d'accordo. È anche soggetto a errori, un argomento che affronteremo nella prossima sezione._
 
-## Summary: Setting Up Your Wallet
+## Riepilogo: Configurare il Tuo Wallet
 
-You need to create an address to receive funds. Your address is stored in a wallet, which you can back up. You can also do lots more with an address, like dumping its private key or using it to sign messages. But really, creating that address is _all_ you need to do in order to receive Bitcoin funds.
+Per ricevere fondi è necessario creare un indirizzo. Il tuo indirizzo è memorizzato in un portafoglio, di cui puoi fare il backup. È anche possibile fare molte altre cose con un indirizzo, come scaricare la sua chiave privata o usarla per firmare i messaggi. Ma in realtà, la creazione dell'indirizzo è tutto ciò che occorre fare per ricevere fondi Bitcoin.
 
-## What's Next?
+## Cosa c'è Dopo?
 
-Step back from "Understanding Your Bitcoin Setup" with [Interlude: Using Command-Line Variables](03_3__Interlude_Using_Command-Line_Variables.md).
+Fai un passo indietro da "Capire la Tua Configurazione Bitcoin" con [Intermezzo: Utilizzare Variabili della Linea di Comando](03_3__Intermezzo_Utilizzare_Variabili_Linea_di_Comando.md).
