@@ -1,59 +1,59 @@
-# 3.4: Receiving a Transaction
+# 3.4: Ricevere Una Transazione
 
-You're now ready to receive some money at the new address you set up.
+Ora sei pronto a ricevere dei satoshi al nuovo indirizzo che hai creato.
 
-## Get Some Money
+## Ricevere Satoshi
 
-To do anything more, you need to get some money. On testnet this is done through faucets. Since the money is all pretend, you just go to a faucet, request some money, and it will be sent over to you. We suggest using the faucet at https://testnet-faucet.mempool.co/, https://bitcoinfaucet.uo1.net/, or https://testnet.coinfaucet.eu/en/. If they're not available for some reason, search for "bitcoin testnet faucet", and you should find others.
+Per poter fare qualsiasi altra cosa, è necessario ottenere dei satoshi. Su testnet questo avviene tramite i faucet. Poiché il denaro è tutto finto, basta andare a un faucet, richiedere dei satoshi e questi ti verranno inviati. Si consiglia di utilizzare i faucet all'indirizzo https://testnet-faucet.mempool.co/, https://bitcoinfaucet.uo1.net/ o https://testnet.coinfaucet.eu/en/. Se per qualche motivo non sono disponibili, cercate "bitcoin testnet faucet" e ne troverete altri.
 
-To use a faucet, you'll usually need to go to a URL and copy and paste in your address. Note that this is one of those cases where you won't be able to use command-line variables, alas. Afterward, a transaction will be created that sends money from the faucet to you.
+Per utilizzare un faucet, di solito è necessario andare su un sito dedicato, come quelli indicati, e copiare e incollare il proprio indirizzo. Si noti che questo è uno dei casi in cui non è possibile utilizzare le variabili della riga di comando. In seguito, verrà creata una transazione che invierà i satoshi dal faucet al wallet.
 
-> :book: ***What is a transaction?*** A transaction is a bitcoin exchange. The owner of some bitcoins uses his private key to access those coins, then locks the transaction using the recipient's public key.
+> :book: ***Cos'è una transazione?*** Una transazione è uno scambio di bitcoin. Il proprietario di alcuni bitcoin utilizza la sua chiave privata per accedere ad essi, quindi blocca la transazione utilizzando la chiave pubblica del destinatario.
 
-> :link: **TESTNET vs MAINNET:** Sadly, there are no faucets in real life. If you were playing on the mainnet, you'd need to go and actually buy bitcoins at a bitcoin exchange or ATM, or you'd need to get someone to send them to you. Testnet life is much easier.
+> :link: **TESTNET vs MAINNET:** Purtroppo, non ci sono faucet nella vita reale. Se fossi sulla mainnet, dovresti andare a comprare i bitcoin presso una exchange p2p o un bancomat, oppure dovresti chiedere a qualcuno di inviarteli. La vita su Testnet è molto più semplice.
 
-## Verify Your Money
+## Verifica il Saldo
 
-After you've requested your money, you should be able to verify it with the `bitcoin-cli getbalance` command:
+Dopo aver richiesto dei fondi, è possibile verificarli con il comando `bitcoin-cli getbalance`:
 ```
 $ bitcoin-cli getbalance
 0.00000000
 ```
-But wait, there's no balance yet!?
+Ma aspetta, non c'è ancora nessun saldo!?
 
-Welcome to the world of Bitcoin latency. The problem is that your transaction hasn't yet been recorded in a block!
+Benvenuti nel mondo della latenza di Bitcoin. Il problema è che la vostra transazione non è ancora stata registrata in un blocco!
 
-> :book: ***What is a block?*** Transactions are transmitted across the network and gathered into blocks by miners. These blocks are secured with a mathematical proof-of-work, which proves that computing power has been expended as part of the block creation. It's that proof-of-work (multiplied over many blocks, each built atop the last) that ultimately keeps Bitcoin secure.
+> :book: ***Cos'è un blocco?*** Le transazioni vengono trasmesse attraverso la rete e raccolte in blocchi dai miner. Questi blocchi sono protetti da una prova di lavoro matematica, che dimostra che la potenza di calcolo è stata spesa per la creazione del blocco. È questa prova di lavoro (moltiplicata per molti blocchi, ognuno costruito sopra l'altro) a rendere sicuro Bitcoin.
 
-> :book: ***What is a miner?*** A miner is a participant of the Bitcoin network who works to create blocks. It's a paying job: when a miner successfully creates a block, he is paid a one-time reward plus the fees for the transactions in his block. Mining is big business. Miners tend to run on special hardware, accelerated in ways that make it more likely that they'll be able to create blocks. They also tend to be part of mining pools, where the miners all agree to share out the rewards when one of them successfully creates a block.
+> :book: ***Cos'è un miner?*** Un miner è un partecipante alla rete Bitcoin che lavora per creare blocchi. Si tratta di un lavoro remunerativo: quando un miner crea con successo un blocco, riceve una ricompensa fissa più le commissioni delle transazioni nel suo blocco. Il mining è un grande business. I miner tendono a utilizzare un hardware speciale, accelerato in modo da rendere più probabile la creazione di blocchi. Inoltre, tendono a far parte di pool di mining, in cui i miner sono tutti d'accordo nel dividersi le ricompense quando uno di loro riesce a creare un blocco.
 
-Fortunately, `bitcoin-cli getunconfirmedbalance` should still show your updated balance as long as the initial transaction has been created:
+Fortunatamente, `bitcoin-cli getunconfirmedbalance` dovrebbe mostrare il saldo aggiornato finché la transazione iniziale non è stata creata:
 ```
 $ bitcoin-cli getunconfirmedbalance
 0.01010000
 ```
-If that's still showing a zero too, you're probably moving through this tutorial too fast. Wait a second. The coins should show up unconfirmed, then rapidly move to confirmed. Do note that a coin can move from unconfirmedbalance to confirmedbalance almost immediately, so make sure you check both. However, if your `getbalance` and your `getunconfirmedbalance` both still show zero in ten minutes, then there's probably something wrong with the faucet, and you'll need to pick another.
+Se anche qui c'è ancora uno zero, probabilmente si sta procedendo troppo velocemente con il tutorial. Aspettate un attimo. Le monete dovrebbero apparire non confermate, quindi passare rapidamente a confermate. Si noti che una moneta può passare da unconfirmedbalance a confirmedbalance quasi immediatamente, quindi assicuratevi di controllarle entrambe. Tuttavia, se il `getbalance` e il `getunconfirmedbalance` mostrano ancora zero dopo dieci minuti, probabilmente c'è qualcosa che non va nel faucet e bisogna sceglierne un altro.
 
-### Gain Confidence in Your Money
+### Ottenere Fiducia nei Propri Satoshi
 
-You can use `bitcoin-cli getbalance "*" [n]`, where you replace `[n]` with an integer, to see if a confirmed balance is 'n' blocks deep.
+Puoi usare `bitcoin-cli getbalance "*" [n]`, dove sostituisci `[n]` con un numero intero, per vedere se un saldo confermato è profondo 'n' blocchi.
 
-> :book: ***What is block depth?*** After a block is built and confirmed, another block is built on top of it, and another ... Because this is a stochastic process, there's some chance for reversal when a block is still new. Thus, a block has to be buried several blocks deep in a chain before you can feel totally confident in your funds. Each of those blocks tends to be built in an average of 10 minutes ... so it usually takes about an hour for a confirmed transaction to receive six blocks deep, which is the measure for full confidence in Bitcoin.
+> :book: ***Cos'è la profondità del blocco?*** Dopo che un blocco è stato creato e confermato, un altro blocco viene creato sopra di esso, e un altro ancora... Poiché si tratta di un processo stocastico, esiste una certa possibilità di inversione quando un blocco è ancora nuovo. Pertanto, un blocco deve essere sepolto da diversi blocchi in una catena prima di potersi sentire totalmente sicuri dei propri fondi. Ognuno di questi blocchi viene creato in media ogni 10 minuti... quindi di solito ci vuole circa un'ora per ricevere una transazione confermata a sei blocchi di profondità, che è la misura della piena fiducia in Bitcoin.
 
-The following shows that our transactions have been confirmed one time, but not twice:
+Di seguito viene mostrato che le nostre transazioni sono state confermate una volta, ma non due:
 ```
 $  bitcoin-cli getbalance "*" 1
 0.01010000
 $  bitcoin-cli getbalance "*" 2
 0.00000000
 ```
-Obviously, every ten minutes or so this depth will increase.
+Ovviamente, ogni dieci minuti circa questa profondità aumenterà.
 
-Of course, on the testnet, no one is that worried about how reliable your funds are. You'll be able to spend your money as soon as it's confirmed.
+Naturalmente, nella rete di prova, nessuno si preoccupa di quanto siano affidabili i vostri fondi. Potrai spendere i tuoi fondi non appena saranno confermati.
 
-## Verify Your Wallet
+## Verificare il Proprio Wallet
 
-The `bitcoin-cli getwalletinfo` command gives you more information on the balance of your wallet:
+Il comando `bitcoin-cli getwalletinfo` fornisce ulteriori informazioni sul saldo del portafoglio:
 ```
 $ bitcoin-cli getwalletinfo
 {
@@ -74,9 +74,9 @@ $ bitcoin-cli getwalletinfo
 }
 ```
 
-## Discover Your Transaction ID
+## Scoprire l'ID della Transazione
 
-Your money came into your wallet via a transaction. You can discover that transactionid (txid) with the `bitcoin-cli listtransactions` command:
+I satoshi sono entrati nel tuo portafoglio tramite una transazione. È possibile scoprire il transactionid (txid) con il comando `bitcoin-cli listtransactions`:
 ```
 $ bitcoin-cli listtransactions
 [
@@ -119,9 +119,9 @@ $ bitcoin-cli listtransactions
 ]
 
 ```
-This shows two transactions (`8e2ab10cabe9ec04ed438086a80b1ac72558cc05bb206e48fc9a18b01b9282e9`) and (`ca4898d8f950df03d6bfaa00578bd0305d041d24788b630d0c4a32debcac9f36`) for a specific amount (`0.01000000` and `0.00010000`), which were both received (`receive`) by the same address in our wallet (`mi25UrzHnvn3bpEfFCNqJhPWJn5b77a5NE`). That's bad key hygeine, by the way: you should use a new address for every single Bitcoin you ever receive. In this case, we got impatient because the first faucet didn't seem to be working.
+Vengono mostrate due transazioni (`8e2ab10cabe9ec04ed438086a80b1ac72558cc05bb206e48fc9a18b01b9282e9`) e (`ca4898d8f950df03d6bfaa00578bd0305d041d24788b630d0c4a32debcac9f36`) per un importo specifico (`0. 01000000` e `0,00010000`), entrambi ricevuti (`receive`) nello stesso indirizzo del nostro wallet (`mi25UrzHnvn3bpEfFCNqJhPWJn5b77a5NE`). Questa è una cattiva pratica di utilizzo delle chiavi: dovreste usare un nuovo indirizzo per ogni singolo Bitcoin che ricevete. In questo caso, ci siamo spazientiti perché il primo rubinetto non sembrava funzionare.
 
-You can access similar information with the `bitcoin-cli listunspent` command, but it only shows the transactions for the money that you haven't spent. These are called UTXOs, and will be vitally important when you're sending money back out into the Bitcoin world:
+È possibile accedere a informazioni simili con il comando `bitcoin-cli listunspent`, ma mostra solo le transazioni in cui i satoshi non sono stati spesi. Queste sono chiamate UTXO e saranno di vitale importanza quando si invieranno i satoshi nel mondo Bitcoin:
 ```
 $ bitcoin-cli listunspent
 [
@@ -153,13 +153,13 @@ $ bitcoin-cli listunspent
   }
 ]
 ```
-Note that bitcoins are not just a homogeneous mess of cash jammed into your pocket. Each individual transaction that you receive or that you send is placed into the immutable blockchain ledger, in a block. You can see these individual transactions when you look at your unspent money. This means that bitcoin spending isn't quite as anonymous as you'd think. Though the addresses are fairly private, transactions can be examined as they go in and out of addresses. This makes privacy vulnerable to statistical analysis. It also introduces some potential non-fungibility to bitcoins, as you can track back through series of transactions, even if you can't track a specific "bitcoin".
+Nota che i bitcoin non sono solo un insieme omogeneo di contanti infilati in tasca. Ogni singola transazione ricevuta o inviata viene inserita nel registro immutabile della blockchain, in un blocco. Puoi vedere queste singole transazioni quando guardi i tuoi satoshi non spesi. Ciò significa che la spesa in bitcoin non è così anonima come si potrebbe pensare. Sebbene gli indirizzi siano abbastanza privati, le transazioni possono essere esaminate mentre entrano ed escono dagli indirizzi. Questo rende la privacy vulnerabile all'analisi statistica. Inoltre, introduce una potenziale non-fungibilità dei bitcoin, in quanto è possibile risalire a una serie di transazioni, anche se non è possibile risalire a un "bitcoin" specifico.
 
-> :book: ***Why are all of these bitcoin amounts in fractions?*** Bitcoins are produced slowly, and so there are relatively few in circulation. As a result, each bitcoin over on the mainnet is worth quite a bit (~ $9,000 at the time of this writing). This means that people usually work in fractions. In fact, the .0101 in Testnet coins would be worth about $100 if they were on the mainnet. For this reason, names have appeared for smaller amounts of bitcoins, including millibitcoins or mBTCs (one-thousandth of a bitcoin), microbitcoins or bits or μBTCs (one-millionth of a bitcoin), and satoshis (one hundred millionth of a bitcoin).
+> :book: ***Perché tutti questi importi di bitcoin sono in frazioni?*** I bitcoin vengono prodotti lentamente e quindi sono relativamente pochi quelli in circolazione. Di conseguenza, ogni bitcoin sulla mainnet ha un valore piuttosto elevato (~ €21.500 al momento in cui scriviamo). Ciò significa che di solito si lavora in frazioni. Infatti, gli 0,0101 in monete di Testnet varrebbero circa €200 se fossero sulla mainnet. Per questo motivo, sono apparsi nomi per piccole quantità di bitcoin, tra cui millibitcoin o mBTC (un millesimo di bitcoin), microbitcoin o bit o μBTC (un milionesimo di bitcoin) e satoshi (un centomilionesimo di bitcoin).
 
-## Examine Your Transaction
+## Esaminare la Tua Transazione
 
-You can get more information on a transaction with the `bitcoin-cli gettransaction` command:
+È possibile ottenere ulteriori informazioni su una transazione con il comando `bitcoin-cli gettransaction`:
 ```
 $ bitcoin-cli gettransaction "8e2ab10cabe9ec04ed438086a80b1ac72558cc05bb206e48fc9a18b01b9282e9"
 {
@@ -187,9 +187,9 @@ $ bitcoin-cli gettransaction "8e2ab10cabe9ec04ed438086a80b1ac72558cc05bb206e48fc
   "hex": "0200000000010114d04977d1b0137adbf51dd5d79944b9465a2619f3fa7287eb69a779977bf5800100000017160014e85ba02862dbadabd6d204fcc8bb5d54658c7d4ffeffffff02df690f000000000017a9145c3bfb36b03f279967977ca9d1e35185e39917788740420f00000000001976a9141b72503639a13f190bf79acf6d76255d772360b788ac0247304402201e74bdfc330fc2e093a8eabe95b6c5633c8d6767249fa25baf62541a129359c202204d462bd932ee5c15c7f082ad7a6b5a41c68addc473786a0a9a232093fde8e1330121022897dfbf085ecc6ad7e22fc91593414a845659429a7bbb44e2e536258d2cbc0c270b1b00"
 }
 ```
-The `gettransaction` command will detail transactions that are in your wallet, such as this one, that was sent to us.
+Il comando `gettransaction` fornisce informazioni dettagliate sulle transazioni presenti nel tuo portafoglio, come questa, che ci è stata inviata.
 
-Note that `gettransaction` has two optional arguments:
+Si noti che `gettransaction` ha due argomenti opzionali:
 ```
 $ bitcoin-cli help gettransaction
 gettransaction "txid" ( include_watchonly verbose )
@@ -201,9 +201,9 @@ Arguments:
 2. include_watchonly    (boolean, optional, default=true for watch-only wallets, otherwise false) Whether to include watch-only addresses in balance calculation and details[]
 3. verbose              (boolean, optional, default=false) Whether to include a `decoded` field containing the decoded transaction (equivalent to RPC decoderawtransaction)
 ```
-By setting these two true or false, we can choose to include watch-only addresses in the output (which we don't care about) or look at more verbose output (which we do).
+Impostando questi due valori true o false, si può scegliere di includere nell'output gli indirizzi di sola osservazione (che non ci interessano) o di visualizzare un output più dettagliato (che ci interessa).
 
-Here's what this data instead looks at when we set `include_watchonly` to `false` and `verbose` to `true`.
+Ecco come appaiono questi dati quando si imposta `include_watchonly` a `false` e `verbose` a `true`.
 ```
 $ bitcoin-cli gettransaction "8e2ab10cabe9ec04ed438086a80b1ac72558cc05bb206e48fc9a18b01b9282e9" false true
 {
@@ -283,33 +283,33 @@ $ bitcoin-cli gettransaction "8e2ab10cabe9ec04ed438086a80b1ac72558cc05bb206e48fc
   }
 }
 ```
-Now you can see the full information on the transaction, including all of the inputs ("vin") and all the outputs ("vout). One of the interesting things to note is that although we received .01 BTC in the transaction, another .01010143 was sent to another address. That was probably a change address, a concept that is explored in the next section. It is quite typical for a transaction to have multiple inputs and/or multiple outputs.
+Ora è possibile vedere le informazioni complete sulla transazione, compresi tutti gli ingressi ("vin") e tutte le uscite ("vout"). Una cosa interessante da notare è che, sebbene abbiamo ricevuto .01 BTC nella transazione, altri .01010143 sono stati inviati a un altro indirizzo. Probabilmente si trattava di un cambio di indirizzo, un concetto che verrà approfondito nella prossima sezione. È abbastanza tipico che una transazione abbia più ingressi e/o più uscite.
 
-There is another command, `getrawtransaction`, which allows you to look at transactions that are not in your wallet. However, it requires you to have an unpruned node and `txindex=1` in your `bitcoin.conf` file. Unless you have a serious need for information not in your wallet, it's probably just better to use a Bitcoin explorer for this sort of thing ...
+Esiste un altro comando, `getrawtransaction`, che consente di esaminare le transazioni non presenti nel proprio portafoglio. Tuttavia, richiede un nodo unpruned e `txindex=1` nel file `bitcoin.conf`. A meno che non si abbia una seria necessità di informazioni non presenti nel proprio portafoglio, probabilmente è meglio usare un explorer Bitcoin per questo genere di cose...
 
-## Optional: Use a Block Explorer
+## Opzionale: Usare un Block Explorer
 
-Even looking at the verbose information for a transaction can be a little intimidating. The main goal of this tutorial is to teach how to deal with raw transactions from the command line, but we're happy to talk about other tools when they're applicable. One of those tools is a block explorer, which you can use to look at transactions from a web browser in a much friendlier format.
+Anche guardare le informazioni dettagliate di una transazione può essere un po' scoraggiante. L'obiettivo principale di questo tutorial è insegnare come gestire le transazioni grezze dalla riga di comando, ma siamo felici di parlare di altri strumenti quando sono pertinenti. Uno di questi strumenti è un block explorer, che può essere utilizzato per esaminare le transazioni da un broswer in un formato molto più intuitivo.
 
-Currently, our preferred block explorer is [https://live.blockcypher.com/](https://live.blockcypher.com/).
+Attualmente, il nostro block explorer preferito è [https://mempool.space/](https://mempool.space/) o [https://blockstream.info/](https://blockstream.info/).
 
-You can use it to look up transactions for an address:
+Si può utilizzare per cercare le transazioni relative a un indirizzo:
 
-[https://live.blockcypher.com/btc-testnet/address/mi25UrzHnvn3bpEfFCNqJhPWJn5b77a5NE/](https://live.blockcypher.com/btc-testnet/address/mi25UrzHnvn3bpEfFCNqJhPWJn5b77a5NE/)
+[https://mempool.space/testnet/address/mi25UrzHnvn3bpEfFCNqJhPWJn5b77a5NE/](https://mempool.space/testnet/address/mi25UrzHnvn3bpEfFCNqJhPWJn5b77a5NE/)
 
-You can also use it to look at individual transactions:
+Si può anche utilizzare per esaminare le singole transazioni:
 
-[https://live.blockcypher.com/btc-testnet/tx/8e2ab10cabe9ec04ed438086a80b1ac72558cc05bb206e48fc9a18b01b9282e9/](https://live.blockcypher.com/btc-testnet/tx/8e2ab10cabe9ec04ed438086a80b1ac72558cc05bb206e48fc9a18b01b9282e9/)
+[https://mempool.space/testnet/tx/8e2ab10cabe9ec04ed438086a80b1ac72558cc05bb206e48fc9a18b01b9282e9/](https://mempool.space/testnet/tx/8e2ab10cabe9ec04ed438086a80b1ac72558cc05bb206e48fc9a18b01b9282e9/)
 
-A block explorer doesn't generally provide any more information than a command line look at a raw transaction; it just does a good job of highlighting the important information and putting together the puzzle pieces, including the transaction fees behind a transaction — another concept that we'll be covering in future sections.
+Un block explorer non fornisce in genere più informazioni di un'analisi a riga di comando di una transazione grezza; fa solo un buon lavoro per evidenziare le informazioni importanti e mettere insieme i pezzi del puzzle, comprese le spese di transazione che stanno dietro a una transazione - un altro concetto che tratteremo nelle prossime sezioni.
 
-## Summary: Receiving a Transaction
+## Riepilogo: Ricevere Una Transazione
 
-Faucets will give you money on the testnet. They come in as raw transactions, which can be examined with `gettransaction` or a block explorer. Once you've receive a transaction, you can see it in your balance and your wallet.
+I faucet ti daranno satoshi sulla testnet. Arrivano come transazioni grezze, che possono essere esaminate con `gettransaction` o con un block explorer. Una volta ricevuta una transazione, la si può vedere nel proprio saldo e nel proprio wallet.
 
-## What's Next?
+## Cosa c'è Dopo?
 
-For a deep dive into how addresses are described, so that they can be transferred or made into parts of a multi-signature, see [§3.5: Understanding the Descriptor](03_5_Understanding_the_Descriptor.md).
+Per un approfondimento su come vengono descritti gli indirizzi, in modo che possano essere trasferiti o trasformati in parti di una firma multipla, guarda [§3.5: Capire il Descrittore](03_5_Capire_il_Descrittore.md).
 
-But if that's too in-depth, continue on to [Chapter Four: Sending Bitcoin Transactions](04_0_Sending_Bitcoin_Transactions.md).
+Ma se questo è troppo dettagliato, continua con il [Capitolo Quattro: Inviare Transazioni Bitcoin](04_0_Inviare_Transazioni_Bitcoin.md).
 
